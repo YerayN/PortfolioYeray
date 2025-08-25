@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Todos los proyectos — Yeray</title>
+  <link rel="icon" href="../assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=12r" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <div class="logo"></div>
+        <span>Yeray — DAM</span>
+      </a>
+      <nav class="nav desktop-nav">
+        <a href="../index.html#proyectos">Proyectos</a>
+        <a href="../index.html#sobre-mi">Sobre mí</a>
+        <a href="../index.html#contacto">Contacto</a>
+        <button id="themeToggle" class="btn btn-outline small">🌙/☀️</button>
+      </nav>
+      <button id="navToggle" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div id="mobileMenu" class="mobile-menu hidden">
+      <a href="../index.html#proyectos" class="mobile-link">Proyectos</a>
+      <a href="../index.html#sobre-mi" class="mobile-link">Sobre mí</a>
+      <a href="../index.html#contacto" class="mobile-link">Contacto</a>
+    </div>
+  </header>
+
+  <main class="container section anchor">
+    <h1>Todos los proyectos</h1>
+    <p class="muted">Listado de proyectos. Haz clic en una tarjeta para ver los detalles.</p>
+
+    <div class="cards">
+      <a class="card link-card" href="proyecto-1.html">
+        <img src="../assets/placeholder-16x9.png" class="card-img" alt="" />
+        <div class="card-body">
+          <h3>Proyecto 1 · Título del repo</h3>
+          <p>Descripción breve del proyecto.</p>
+        </div>
+      </a>
+      <a class="card link-card" href="proyecto-2.html">
+        <img src="../assets/placeholder-16x9.png" class="card-img" alt="" />
+        <div class="card-body">
+          <h3>Proyecto 2 · Título del repo</h3>
+          <p>Descripción breve del proyecto.</p>
+        </div>
+      </a>
+      <a class="card link-card" href="proyecto-3.html">
+        <img src="../assets/placeholder-16x9.png" class="card-img" alt="" />
+        <div class="card-body">
+          <h3>Proyecto 3 · Título del repo</h3>
+          <p>Descripción breve del proyecto.</p>
+        </div>
+      </a>
+      <a class="card link-card" href="proyecto-4.html">
+        <img src="../assets/placeholder-16x9.png" class="card-img" alt="" />
+        <div class="card-body">
+          <h3>Proyecto 4 · Título del repo</h3>
+          <p>Descripción breve del proyecto.</p>
+        </div>
+      </a>
+      <a class="card link-card" href="proyecto-5.html">
+        <img src="../assets/placeholder-16x9.png" class="card-img" alt="" />
+        <div class="card-body">
+          <h3>Proyecto 5 · Título del repo</h3>
+          <p>Descripción breve del proyecto.</p>
+        </div>
+      </a>
+      <a class="card link-card" href="proyecto-6.html">
+        <img src="../assets/placeholder-16x9.png" class="card-img" alt="" />
+        <div class="card-body">
+          <h3>Proyecto 6 · Título del repo</h3>
+          <p>Descripción breve del proyecto.</p>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Yeray.</span>
+    </div>
+  </footer>
+
+  <script src="../main.js?v=12r"></script>
+</body>
+</html>

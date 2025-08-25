@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yeray — Portfolio</title>
+  <meta name="description" content="Portfolio de Yeray · Desarrollador de Aplicaciones Multiplataforma (DAM)" />
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=12r" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <div class="logo"></div>
+        <span>Yeray — DAM</span>
+      </a>
+      <nav class="nav desktop-nav">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#contacto">Contacto</a>
+        <button id="themeToggle" class="btn btn-outline small" aria-label="Cambiar tema">🌙/☀️</button>
+      </nav>
+      <button id="navToggle" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div id="mobileMenu" class="mobile-menu hidden">
+      <a href="#proyectos" class="mobile-link">Proyectos</a>
+      <a href="#sobre-mi" class="mobile-link">Sobre mí</a>
+      <a href="#contacto" class="mobile-link">Contacto</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container anchor">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1>Hola, soy <span class="gradient">Yeray</span>.</h1>
+            <p>
+            Desarrollador de <strong>aplicaciones de escritorio</strong> y <strong>soluciones web</strong>, con experiencia en proyectos
+            formativos y personales usando <strong>Python, Java, Kotlin, React, Node.js, HTML, CSS y JavaScript</strong>.
+            Aprendo rápido, me adapto con facilidad a los cambios, y trabajo muy cómodo bajo presión.
+            </p>
+          <div class="cta-row">
+            <a class="btn btn-outline" href="#proyectos">Ver proyectos</a>
+            <a class="btn" href="assets/cv-yeray.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+          </div>
+        </div>
+        <div class="hero-cards">
+          <div class="grid-tiles">
+            <div class="tile">Python</div><div class="tile">Java</div><div class="tile">Kotlin</div>
+            <div class="tile">HTML</div><div class="tile">CSS</div><div class="tile">JavaScript</div>
+            <div class="tile">React</div><div class="tile">Node.js</div><div class="tile">SQL</div>
+            <div class="tile">Data</div><div class="tile">Git</div><div class="tile">GitHub</div></div>
+          </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="container section anchor">
+      <div class="section-head">
+        <h2>Proyectos destacados</h2>
+        <a class="muted link" href="proyectos/index.html">Ver todos →</a>
+      </div>
+
+      <div class="cards">
+        <a class="card link-card" href="proyectos/proyecto-1.html">
+          <img src="assets/proyecto-gym.png" alt="" class="card-img" />
+          <div class="card-body">
+            <h3>Powerfit · Gestión de gimnasios</h3>
+            <p>Breve descripción del proyecto: stack usado, problema resuelto y resultado. Enlaza al repositorio y añade capturas.</p>
+            <div class="chips">
+              <span class="chip">Java</span>
+              <span class="chip">SQLite</span>
+              <span class="chip">Git</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card link-card" href="proyectos/proyecto-2.html">
+          <img src="assets/placeholder-16x9.png" alt="" class="card-img" />
+          <div class="card-body">
+            <h3>Dashboard de hábitos personales</h3>
+            <p>Breve descripción del proyecto: stack usado, problema resuelto y resultado. Enlaza al repositorio y añade capturas.</p>
+            <div class="chips">
+              <span class="chip">Android</span>
+              <span class="chip">Kotlin</span>
+              <span class="chip link">GitHub →</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card link-card" href="proyectos/proyecto-3.html">
+          <img src="assets/placeholder-16x9.png" alt="" class="card-img" />
+          <div class="card-body">
+            <h3>Proyecto 3 · Título del repo</h3>
+            <p>Breve descripción del proyecto: stack usado, problema resuelto y resultado. Enlaza al repositorio y añade capturas.</p>
+            <div class="chips">
+              <span class="chip">Java</span>
+              <span class="chip">Spring Boot</span>
+              <span class="chip link">GitHub →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="container section anchor about">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>Sobre mí</h2>
+            <p>
+              Soy un <strong>desarrollador en formación continua</strong> con titulación en
+              <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong>. Trabajo con
+              <strong>Python, Java, Kotlin, React, Node.js, HTML, CSS, JavaScript</strong> y bases de datos
+              <strong>MySQL y SQLite</strong>, además de usar <strong>Git y GitHub</strong> como herramientas de control de versiones.
+              Me interesa aplicar buenas prácticas como <em>código limpio, testing básico y documentación clara</em>.
+            </p>
+            
+            <p>
+              Aunque mi formación principal está en el <strong>desarrollo de aplicaciones y web</strong>, también me atraen
+              otras áreas del mundo tecnológico: <strong>análisis e ingeniería de datos, inteligencia artificial,
+              ciberseguridad o incluso desarrollo de videojuegos</strong>. Estoy abierto a especializarme según el equipo
+              y la empresa donde me incorpore, creciendo junto a ellos y aportando desde el primer día.
+            </p>
+            
+            <p>
+              Antes de dedicarme a la programación trabajé en el sector sanitario, en entornos de alta presión donde
+              desarrollé <strong>capacidad de comunicación, coordinación y trabajo en equipo</strong>. Esa experiencia me
+              da una base sólida de madurez y compromiso que ahora aplico en mi carrera como desarrollador.
+            </p>
+        </div>
+        <img src="assets/foto-perfil.png" alt="Foto Yeray" class="about-photo" />
+      </div>
+    </section>
+
+    <section id="contacto" class="container section anchor">
+      <h2>Contacto</h2>
+      <form class="form" onsubmit="return false;">
+        <input required placeholder="Tu nombre" />
+        <input required type="email" placeholder="Tu email" />
+        <textarea required placeholder="Mensaje" rows="6"></textarea>
+        <button class="btn" type="submit">Enviar</button>
+      </form>
+      <p class="muted">También en <a class="link" href="#" target="_blank">GitHub</a> · <a class="link" href="#" target="_blank">LinkedIn</a> · <a class="link" href="mailto:tuemail@dominio.com">Email</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Yeray. Hecho con HTML/CSS/JS.</span>
+      <a class="muted" href="#">Imprint / Privacy</a>
+    </div>
+  </footer>
+
+  <script src="main.js?v=12r"></script>
+</body>
+</html>
