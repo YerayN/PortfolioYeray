@@ -42,7 +42,7 @@
           <h1>Hola, soy <span class="gradient">Yeray</span>.</h1>
             <p>
             Desarrollador de <strong>aplicaciones de escritorio</strong> y <strong>soluciones web</strong>, con experiencia en proyectos
-            formativos y personales usando <strong>Python, Java, Kotlin, React, Node.js, HTML, CSS y JavaScript</strong>.
+            formativos y personales usando <strong>Python, Java, SQL, HTML, CSS, JavaScript, React, Node.js y Git</strong>.
             Aprendo rápido, me adapto con facilidad a los cambios, y trabajo muy cómodo bajo presión.
             </p>
           <div class="cta-row">
@@ -137,21 +137,70 @@
     </section>
 
     <section id="contacto" class="container section anchor">
-      <h2>Contacto</h2>
-      <form class="form" onsubmit="return false;">
-        <input required placeholder="Tu nombre" />
-        <input required type="email" placeholder="Tu email" />
-        <textarea required placeholder="Mensaje" rows="6"></textarea>
-        <button class="btn" type="submit">Enviar</button>
-      </form>
-      <p class="muted">También en <a class="link" href="#" target="_blank">GitHub</a> · <a class="link" href="#" target="_blank">LinkedIn</a> · <a class="link" href="mailto:ny93yeray@gmail.com">Email</a></p>
-    </section>
+  <h2>Contacto</h2>
+
+  <div class="contact-grid">
+    <!-- Columna izquierda: info visible -->
+    <aside class="contact-info">
+      <p class="muted">Aquí tienes mis enlaces y datos de contacto.</p>
+
+      <div class="contact-cards">
+        <a class="chip-link" href="https://www.linkedin.com/in/yeray-navarro-0195a934a/" target="_blank" rel="noopener" aria-label="LinkedIn de Yeray">
+          <span>LinkedIn</span>
+          <span class="chip-cta">Abrir →</span>
+        </a>
+
+        <a class="chip-link" href="https://github.com/YerayN" target="_blank" rel="noopener" aria-label="GitHub de Yeray">
+          <span>GitHub</span>
+          <span class="chip-cta">Abrir →</span>
+        </a>
+
+        <div class="chip-row">
+          <a class="chip-link" href="mailto:ny93yeray@gmail.com">
+            <span>ny93yeray@gmail.com</span>
+            <span class="chip-cta">Enviar ✉️</span>
+          </a>
+          <button class="chip-btn" data-copy="ny93yeray@gmail.com" aria-label="Copiar email">Copiar</button>
+        </div>
+
+        <div class="chip-row">
+          <a class="chip-link" href="tel:+34637659355">
+            <span>+34 637 659 355</span>
+            <span class="chip-cta">Llamar 📞</span>
+          </a>
+          <button class="chip-btn" data-copy="+34637659355" aria-label="Copiar teléfono">Copiar</button>
+        </div>
+      </div>
+
+      <p class="muted small-note">
+        También reviso mensajes por WhatsApp o LinkedIn. Si prefieres email, suelo responder en un máximo de 24h.
+      </p>
+    </aside>
+
+    <!-- Columna derecha: formulario compacto (40%) -->
+    <form id="contactForm"
+          action="https://formspree.io/f/tu_endpoint"
+          method="POST"
+          class="form contact-form"
+          novalidate>
+      <input name="name" type="text" placeholder="Tu nombre" required />
+      <input name="email" type="email" placeholder="Tu email" required />
+      <textarea name="message" rows="5" placeholder="Mensaje" required></textarea>
+
+      <!-- Honeypot anti-spam -->
+      <input type="text" name="_gotcha" class="hp" autocomplete="off" tabindex="-1" />
+
+      <button class="btn" type="submit" id="sendBtn">Enviar</button>
+      <p class="form-status" id="formStatus" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
       <span>© <span id="year"></span> Yeray Navarro.</span>
-      <a class="muted" href="#">Imprint / Privacy</a>
     </div>
   </footer>
 

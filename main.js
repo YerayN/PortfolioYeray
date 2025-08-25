@@ -43,8 +43,64 @@ cards.forEach(card => {
   card.addEventListener('pointerleave', () => { cancelAnimationFrame(raf); reset(); });
 });
 
-// Dummy form submit
-document.querySelector('.form')?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  alert('¡Gracias! Conectaré este formulario (Formspree/EmailJS) en la siguiente iteración.');
+// Copiar al portapapeles (email/teléfono)
+document.querySelectorAll('.chip-btn[data-copy]').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const value = btn.getAttribute('data-copy');
+    try {
+      await navigator.clipboard.writeText(value);
+      const old = btn.textContent;
+      btn.textContent = 'Copiado ✓';
+      setTimeout(() => btn.textContent = old, 1200);
+    } catch {
+      // Fallback simple: seleccionar texto dentro del enlace hermano
+      const link = btn.parentElement.querySelector('.chip-link span');
+      if (!link) return;
+      const r = document.createRange(); r.selectNode(link);
+      const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      document.execCommand('copy'); sel.removeAllRanges();
+      const old = btn.textContent; btn.textContent = 'Copiado ✓';
+      setTimeout(() => btn.textContent = old, 1200);
+    }
+  });
 });
+
+// Envío real con Formspree
+const form = document.getElementById('contactForm');
+const sendBtn = document.getElementById('sendBtn');
+const statusEl = document.getElementById('formStatus');
+
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusEl.textContent = 'Enviando...';
+    sendBtn.disabled = true;
+
+    const data = new FormData(form);
+    data.append('_subject', 'Nuevo mensaje desde el portfolio');
+    data.append('page', window.location.href);
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.reset();
+        statusEl.textContent = '¡Gracias! Te responderé en cuanto pueda.';
+      } else {
+        const err = await res.json().catch(() => null);
+        statusEl.textContent =
+          (err && err.errors && err.errors.map(e => e.message).join(', '))
+          || 'Ups, no se pudo enviar. Intenta de nuevo en un momento.';
+      }
+    } catch (_) {
+      statusEl.textContent = 'Error de conexión. Revisa tu red y vuelve a intentar.';
+    } finally {
+      sendBtn.disabled = false;
+    }
+  });
+}
+
