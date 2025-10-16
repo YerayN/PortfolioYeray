@@ -13,7 +13,7 @@ function updateThemeIcon(theme) {
 // 1️⃣ Cargar el tema guardado o usar light por defecto
 try {
   const saved = localStorage.getItem('theme');
-  const theme = saved || 'light';
+  const theme = saved ?? 'light'; // si no hay nada, usa light
   html.setAttribute('data-theme', theme);
   updateThemeIcon(theme);
 } catch {
