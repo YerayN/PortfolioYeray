@@ -5,8 +5,8 @@
   --muted: #666;
   --card: #f7f7f8;
   --border: #e5e7eb;
-  --brand1: #6366f1;
-  --brand2: #8b5cf6;
+  --brand1: #4a87ce;
+  --brand2: #167bee;
   --header-h: 68px;
 }
 
@@ -68,14 +68,19 @@ body {
 }
 
 .logo {
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
-  background-image: url('assets/logo.svg'), linear-gradient(135deg, var(--brand1), var(--brand2));
-  background-size: cover, auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  border: 1px solid var(--border);
+  width: auto;
+  height: 40px;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px; /* opcional, si quieres esquinas suaves */
 }
 
 .nav { display: flex; align-items: center; gap: 18px; }
