@@ -8,7 +8,7 @@ const mobileMenu = document.getElementById('mobileMenu');
 // Theme persistence
 try { const saved = localStorage.getItem('theme'); if (saved) html.setAttribute('data-theme', saved); } catch {}
 toggle?.addEventListener('click', () => {
-  const theme = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  const theme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   html.setAttribute('data-theme', theme);
   try { localStorage.setItem('theme', theme); } catch {}
 });
