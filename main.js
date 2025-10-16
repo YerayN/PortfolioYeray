@@ -5,13 +5,34 @@ const yearEl = document.getElementById('year');
 const navToggle = document.getElementById('navToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 
-// Theme persistence
-try { const saved = localStorage.getItem('theme'); if (saved) html.setAttribute('data-theme', saved); } catch {}
-toggle?.addEventListener('click', () => {
-  const theme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+// Función para actualizar el icono del botón según el tema actual
+function updateThemeIcon(theme) {
+  toggle.textContent = theme === 'light' ? '🌙' : '☀️';
+}
+
+// 1️⃣ Cargar el tema guardado o usar light por defecto
+try {
+  const saved = localStorage.getItem('theme');
+  const theme = saved || 'light';
   html.setAttribute('data-theme', theme);
-  try { localStorage.setItem('theme', theme); } catch {}
+  updateThemeIcon(theme);
+} catch {
+  html.setAttribute('data-theme', 'light');
+  updateThemeIcon('light');
+}
+
+// 2️⃣ Alternar entre light/dark al pulsar el botón
+toggle?.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  updateThemeIcon(next);
+  try {
+    localStorage.setItem('theme', next);
+  } catch {}
 });
+
+// 3️⃣ Año del footer
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // Mobile menu open/close
