@@ -1,4 +1,4 @@
-// v12-rev: theme toggle, mobile menu stable, card tilt/glow
+// v13-rev: typewriter effect + smooth scroll nativo
 const html = document.documentElement;
 const toggle = document.getElementById('themeToggle');
 const yearEl = document.getElementById('year');
@@ -8,7 +8,7 @@ const mobileMenu = document.getElementById('mobileMenu');
 // Theme persistence
 try { const saved = localStorage.getItem('theme'); if (saved) html.setAttribute('data-theme', saved); } catch {}
 toggle?.addEventListener('click', () => {
-  const theme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  const theme = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
   html.setAttribute('data-theme', theme);
   try { localStorage.setItem('theme', theme); } catch {}
 });
@@ -25,6 +25,42 @@ navToggle?.addEventListener('click', () => {
 document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => closeMenu()));
 window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
 document.addEventListener('scroll', () => { if (window.innerWidth <= 900) closeMenu(); }, { passive: true });
+
+// Typewriter effect en bucle (solo desktop, no afecta móvil)
+const typewriterEl = document.getElementById('typewriter');
+if (typewriterEl && window.innerWidth > 900) {
+  const text = typewriterEl.textContent;
+  typewriterEl.textContent = '';
+  typewriterEl.style.opacity = '1';
+  
+  let i = 0;
+  let isDeleting = false;
+  
+  function typeLoop() {
+    if (!isDeleting && i < text.length) {
+      // Escribiendo
+      typewriterEl.textContent += text.charAt(i);
+      i++;
+      setTimeout(typeLoop, 120); // velocidad de escritura
+    } else if (!isDeleting && i === text.length) {
+      // Pausa cuando termina de escribir
+      isDeleting = true;
+      setTimeout(typeLoop, 2000); // pausa antes de borrar
+    } else if (isDeleting && i > 0) {
+      // Borrando
+      typewriterEl.textContent = text.substring(0, i - 1);
+      i--;
+      setTimeout(typeLoop, 80); // velocidad de borrado (más rápido)
+    } else if (isDeleting && i === 0) {
+      // Reiniciar ciclo
+      isDeleting = false;
+      setTimeout(typeLoop, 500); // pausa antes de volver a escribir
+    }
+  }
+  
+  // Pequeño delay antes de empezar
+  setTimeout(typeLoop, 500);
+}
 
 // Glow + Tilt effect for cards
 const cards = document.querySelectorAll('.card');
@@ -103,4 +139,3 @@ if (form) {
     }
   });
 }
-
