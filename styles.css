@@ -1,20 +1,21 @@
+/* v13-rev: smooth scroll + typewriter cursor */
 :root {
-  --bg: #0a0a0a;
-  --text: #e8e8e8;
-  --muted: #9b9b9b;
-  --card: #111214;
-  --border: #1f2023;
-  --brand1: #6366f1;
-  --brand2: #8b5cf6;
-  --header-h: 68px;
-}
-
-html[data-theme="light"] {
   --bg: #fff;
   --text: #111;
   --muted: #666;
   --card: #f7f7f8;
   --border: #e5e7eb;
+  --brand1: #6366f1;
+  --brand2: #8b5cf6;
+  --header-h: 68px;
+}
+
+html[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --text: #e8e8e8;
+  --muted: #9b9b9b;
+  --card: #111214;
+  --border: #1f2023;
 }
 
 * { box-sizing: border-box; }
@@ -192,6 +193,24 @@ body {
   color: transparent;
 }
 
+/* Cursor parpadeante para typewriter (solo desktop) */
+@media (min-width: 900px) {
+  #typewriter {
+    opacity: 0; /* oculto inicialmente, JS lo muestra */
+  }
+  
+  #typewriter::after {
+    content: '|';
+    color: var(--brand1);
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+}
+
 .hero-copy p {
   font-size: clamp(16px, 2vw, 20px);
   color: var(--muted);
@@ -296,7 +315,7 @@ body {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 24px;
-  align-items: center; /* centrado vertical de ambos si te gusta así */
+  align-items: center;
 }
 
 .about-text { min-width: 0; }
@@ -358,9 +377,9 @@ body {
 /* --- Contacto: layout 60/40 con alturas iguales --- */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr; /* ≈ 60% / 40% */
+  grid-template-columns: 1.6fr 1fr;
   gap: 20px;
-  align-items: stretch;            /* 🔹 iguala altura de columnas */
+  align-items: stretch;
 }
 
 @media (max-width: 900px) {
@@ -373,17 +392,17 @@ body {
   border-radius: 16px;
   background: var(--card);
   padding: 16px;
-
-  /* 🔹 que el panel ocupe toda la altura disponible */
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: 0;
 }
 
 .contact-cards {
   display: grid;
   gap: 10px;
   margin-top: 10px;
+  flex: 1;
 }
 
 /* Chips/enlaces interactivos */
@@ -438,21 +457,19 @@ body {
   border-radius: 16px;
   background: var(--card);
   padding: 16px;
-
-  /* 🔹 misma altura que la columna izquierda */
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: 0;
 }
 
-/* 🔹 empuja el botón al fondo del formulario */
+/* Empuja el botón al fondo del formulario */
 .contact-form .btn { margin-top: auto; }
 
 .hp { display: none; }
 .form-status { margin-top: 8px; font-size: 14px; }
 
-
-/* --- Marco de navegador (opcional, si quieres un toque más realista) --- */
+/* --- Marco de navegador --- */
 .browser {
   border-radius: 16px;
   overflow: hidden;
@@ -489,3 +506,91 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
+/* Estilos adicionales para páginas de proyectos */
+.cols {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* Corrige la alineación vertical de los paneles de contacto */
+.contact-grid {
+  display: flex;
+  align-items: stretch; /* iguala alturas */
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-info,
+.contact-form {
+  flex: 1 1 0;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+@media (max-width: 900px) {
+  .cols { grid-template-columns: 1fr; }
+  .contact-grid {
+    gap: 12px; /* un poco menos de espacio vertical */
+  }
+
+  .contact-info,
+  .contact-form {
+    width: 100%;
+    padding: 14px 12px; /* reduce padding lateral para igualar márgenes */
+    box-sizing: border-box;
+  }
+
+  /* Los botones 'Copiar' se apilan correctamente */
+  .chip-row {
+    grid-template-columns: 1fr;
+  }
+
+  .chip-btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  /* Pequeño reajuste visual de los enlaces */
+  .chip-link {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+  }
+
+  /* Evita bordes desalineados */
+  .chip-link span {
+    flex: 1 1 100%;
+  }
+}
+
+
+.sidebar {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  height: fit-content;
+}
+
+.meta {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.meta li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.meta li:last-child { border-bottom: none; }
+
+.muted { color: var(--muted); }
