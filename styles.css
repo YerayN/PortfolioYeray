@@ -64,10 +64,10 @@ body {
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
-  font-size: 12px;
+  /* Eliminada la regla font-size: 12px; que estaba causando el problema */
 }
 
-/* Nuevo estilo para el logo de texto */
+/* Nuevo estilo para el logo de texto (Ahora tiene prioridad sobre el padre .brand) */
 .logo-text {
   font-size: 18px; /* Aumentamos el tamaño */
   font-weight: 700; /* Lo hacemos más negrita */
@@ -75,12 +75,8 @@ body {
 }
 
 .logo {
-  width: auto;
-  height: 40px;
-  border: none;
-  background: none;
-  display: flex;
-  align-items: center;
+  /* Este div ya no se usa, lo ocultamos por si acaso, aunque ya no deberías tener la etiqueta div.logo en el HTML. */
+  display: none; 
 }
 
 .logo img {
