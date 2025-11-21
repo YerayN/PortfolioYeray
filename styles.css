@@ -67,6 +67,13 @@ body {
   font-size: 12px;
 }
 
+/* Nuevo estilo para el logo de texto */
+.logo-text {
+  font-size: 18px; /* Aumentamos el tamaño */
+  font-weight: 700; /* Lo hacemos más negrita */
+  letter-spacing: .08em; /* Ajustamos el espaciado para que se vea más profesional */
+}
+
 .logo {
   width: auto;
   height: 40px;
