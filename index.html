@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yeray — Portfolio</title>
-  <meta name="description" content="Portfolio de Yeray · Desarrollador de Aplicaciones Multiplataforma (DAM)" />
+  <title>Yeray Navarro | Desarrollador de Aplicaciones y Web</title>
+  <meta name="description" content="Portfolio de Yeray Navarro | Desarrollador de Aplicaciones Multiplataforma (DAM)" />
   <link rel="icon" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,7 @@
   </header>
 
   <main id="top">
-    <section class="hero container anchor">
+    <section class="hero container">
       <div class="hero-grid">
         <div class="hero-copy">
           <h1>Hola, soy <span class="gradient" id="typewriter">Yeray</span>.</h1>
@@ -45,8 +45,8 @@
             Aprendo rápido, me adapto con facilidad a los cambios, y trabajo muy cómodo bajo presión.
             </p>
           <div class="cta-row">
-            <a class="btn btn-outline" href="/proyectos/index.html">Ver proyectos</a>
-            <a class="btn" href="assets/cv-yeray.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+            <a class="btn btn-outline" href="proyectos/index.html">Ver proyectos</a>
+            <a class="btn" href="assets/cv-yeray.pdf" target="_blank" rel="noopener" aria-label="Descargar Currículum Vitae de Yeray Navarro en PDF">Descargar CV</a>
           </div>
         </div>
         <div class="hero-cards">
@@ -66,7 +66,7 @@
 
       <div class="cards">
                 <a class="card link-card" href="proyectos/proyecto-1.html">
-          <img src="assets/viveaigues.png" loading="lazy" alt="" class="card-img" />
+          <img src="assets/viveaigues.png" loading="lazy" alt="Captura del proyecto Plataforma Ciudadana Vive Aigües" class="card-img" />
           <div class="card-body">
             <h3>Plataforma ciudadana</h3>
             <p>Aplicación web de gestión ciudadana que conecta a vecinos y ayuntamiento mediante buzones de sugerencias e incidencias,
@@ -80,7 +80,7 @@
         </a>
 
         <a class="card link-card" href="proyectos/proyecto-2.html">
-          <img src="assets/ladespensa.png" loading="lazy" alt="" class="card-img" />
+          <img src="assets/ladespensa.png" loading="lazy" alt="Captura del proyecto App La Despensa" class="card-img" />
           <div class="card-body">
             <h3>La despensa</h3>
             <p>Aplicación web para organizar recetas, planificar menús semanales y generar automáticamente listas de la compra agrupadas por categorías para cada hogar.</p>
@@ -93,7 +93,7 @@
         </a>
 
         <a class="card link-card" href="proyectos/proyecto-3.html">
-          <img src="assets/zoavet.png" loading="lazy" alt="" class="card-img" />
+          <img src="assets/zoavet.png" loading="lazy" alt="Captura del proyecto ZoaVet" class="card-img" />
           <div class="card-body">
             <h3>ZoaVet</h3>
             <p>Aplicación web para veterinarios a domicilio que permite gestionar animales, dueños, visitas y tratamientos activos, todo desde una interfaz sencilla y accesible.</p>
@@ -132,74 +132,95 @@
               da una base sólida de madurez y compromiso que ahora aplico en mi carrera como desarrollador.
             </p>
         </div>
-        <img src="assets/foto-perfil.png" alt="Foto Yeray" class="about-photo" />
+        <img src="assets/foto-perfil.png" alt="Fotografía profesional de Yeray Navarro" class="about-photo" />
       </div>
     </section>
 
-    <section id="contacto" class="container section anchor">
-  <h2>Contacto</h2>
+    <section id="contacto" class="contact">
+        <div class="container contact-wrapper">
 
-  <div class="contact-grid">
-    <aside class="contact-info">
-      <p class="muted">Aquí tienes mis enlaces y datos de contacto.</p>
+            <div class="confidence-points-horizontal">
+                <h4>¡Trabaja conmigo con total confianza!</h4>
+                <div class="points-grid">
+                    <div class="point-item">
+                        <span class="icon">💰</span>
+                        <p><strong>Claro y Transparente:</strong> Sin costes ocultos ni sorpresas en la factura.</p>
+                    </div>
+                    <div class="point-item">
+                        <span class="icon">⏱️</span>
+                        <p><strong>Respuesta Ágil:</strong> Te respondo en un máximo de 24 horas.</p>
+                    </div>
+                    <div class="point-item">
+                        <span class="icon">💬</span>
+                        <p><strong>Trato Directo:</strong> Hablas con Yeray, sin intermediarios.</p>
+                    </div>
+                </div>
+            </div>
 
-      <div class="contact-cards">
-        <a class="chip-link" href="https://www.linkedin.com/in/yeray-navarro-0195a934a/" target="_blank" rel="noopener" aria-label="LinkedIn de Yeray">
-          <span>LinkedIn</span>
-          <span class="chip-cta">Abrir →</span>
-        </a>
+            <form id="contactForm"
+                action="https://formspree.io/f/xyzdgaja"
+                method="POST"
+                class="contact-form"
+                novalidate> 
 
-        <a class="chip-link" href="https://github.com/YerayN" target="_blank" rel="noopener" aria-label="GitHub de Yeray">
-          <span>GitHub</span>
-          <span class="chip-cta">Abrir →</span>
-        </a>
+                <h3>¡Cuéntame tu idea y te doy una respuesta personalizada!</h3>
 
-        <div class="chip-row">
-          <a class="chip-link" href="mailto:ny93yeray@gmail.com">
-            <span>ny93yeray@gmail.com</span>
-            <span class="chip-cta">Enviar ✉️</span>
-          </a>
-          <button class="chip-btn" data-copy="ny93yeray@gmail.com" aria-label="Copiar email">Copiar</button>
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio">
+                <input type="hidden" name="page" value="Página de inicio">
+
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono (Opcional)</label>
+                    <input type="tel" id="telefono" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="tipo">Tipo de Proyecto (Opcional)</label>
+                    <select id="tipo" name="project_type">
+                        <option value="">Selecciona...</option>
+                        <option value="portfolio">Portfolio</option>
+                        <option value="web-simple">Web Simple</option>
+                        <option value="arreglo">Arreglo de Código / Tarea</option>
+                        <option value="consultoria">Consultoría / Proyecto a Medida</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje (Sé lo más específico posible)</label>
+                    <textarea id="mensaje" name="message" rows="4" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" id="sendBtn">
+                    ENVIAR
+                </button>
+                <p class="form-status" id="formStatus" aria-live="polite"></p>
+
+
+                <div class="direct-contact-footer">
+                    <p>¿Prefieres no usar el formulario? Contáctame directamente:</p>
+                    <a href="https://wa.me/34637659355" target="_blank" class="contact-link">💬 WhatsApp (+34 637 65 93 55)</a>
+                    |
+                    <a href="mailto:ny93yeray@gmail.com" class="contact-link">✉️ Email</a>
+                    |
+                    <a href="tel:+34637659355" class="contact-link">📞 Llamar</a>
+                </div>
+            </form>
+
         </div>
+    </section>
+    </main>
 
-        <div class="chip-row">
-          <a class="chip-link" href="tel:+34637659355">
-            <span>+34 637 659 355</span>
-            <span class="chip-cta">Llamar 📞</span>
-          </a>
-          <button class="chip-btn" data-copy="+34637659355" aria-label="Copiar teléfono">Copiar</button>
-        </div>
+  <footer class="footer">
+      <div class="container footer-content">
+          <div class="copyright">
+              &copy; 2025 Yeray Navarro. Todos los derechos reservados.
+          </div>
       </div>
-
-      <p class="muted small-note">
-        También reviso mensajes por WhatsApp o LinkedIn. Si prefieres email, suelo responder en un máximo de 24h.
-      </p>
-    </aside>
-
-    <form id="contactForm"
-      action="https://formspree.io/f/xyzdgaja"
-      method="POST"
-      class="form contact-form"
-      novalidate>
-  <input name="name" type="text" placeholder="Tu nombre" required />
-  <input name="email" type="email" placeholder="Tu email" required />
-  <textarea name="message" rows="5" placeholder="Mensaje" required></textarea>
-
-  <input type="text" name="_gotcha" class="hp" autocomplete="off" tabindex="-1" />
-
-  <button class="btn" type="submit" id="sendBtn">Enviar</button>
-  <p class="form-status" id="formStatus" aria-live="polite"></p>
-</form>
-
-  </div>
-</section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> Yeray Navarro.</span>
-    </div>
   </footer>
 
   <script src="main.js?v=13r"></script>
