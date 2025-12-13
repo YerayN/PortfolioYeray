@@ -553,6 +553,20 @@ body {
 
 .copyright { font-size: 0.9rem; }
 
+/* Estilo para el collage de la App */
+.project-hero-image {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.collage-img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  border: 1px solid var(--border);
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .points-grid {
