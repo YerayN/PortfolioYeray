@@ -1,229 +1,236 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yeray Navarro | Desarrollador de Aplicaciones y Web</title>
-  <meta name="description" content="Portfolio de Yeray Navarro | Desarrollador de Aplicaciones Multiplataforma (DAM)" />
-  <link rel="icon" href="assets/favicon.png">
+  <title>Yeray Navarro · Desarrollador</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=13r" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <div class="bg-canvas" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand">
-        <span class="logo-text">YERAY NAVARRO</span>
-      </a>
-      <nav class="nav desktop-nav">
-        <a href="#proyectos">Proyectos</a>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#contacto">Contacto</a>
-        <button id="themeToggle" class="btn btn-outline small" aria-label="Cambiar tema">🌙/☀️</button>
+      <a href="#" class="brand">YN<span class="brand-dot">></span></a>
+      <nav class="nav">
+        <a href="#proyectos">proyectos</a>
+        <a href="#sobre-mi">sobre_mi</a>
+        <a href="#contacto">contacto</a>
       </nav>
-      <button id="navToggle" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span><span></span><span></span>
+      <button class="menu-btn" id="menuBtn" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span>
       </button>
-    </div>
-    <div id="mobileMenu" class="mobile-menu hidden">
-      <a href="#proyectos" class="mobile-link">Proyectos</a>
-      <a href="#sobre-mi" class="mobile-link">Sobre mí</a>
-      <a href="#contacto" class="mobile-link">Contacto</a>
     </div>
   </header>
 
-  <main id="top">
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#proyectos" class="mobile-link">proyectos</a>
+    <a href="#sobre-mi" class="mobile-link">sobre_mi</a>
+    <a href="#contacto" class="mobile-link">contacto</a>
+  </div>
+
+  <main>
+
     <section class="hero container">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <h1>Hola, soy <span class="gradient" id="typewriter">Yeray</span>.</h1>
-            <p>
-            Desarrollador de <strong>aplicaciones de escritorio</strong> y <strong>soluciones web</strong>, con experiencia en proyectos
-            formativos y personales usando <strong>Python, Java, SQL, HTML, CSS, JavaScript, React, Node.js y Git</strong>.
-            Aprendo rápido, me adapto con facilidad a los cambios, y trabajo muy cómodo bajo presión.
-            </p>
-          <div class="cta-row">
-            <a class="btn btn-outline" href="proyectos/index.html">Ver proyectos</a>
-            <a class="btn" href="assets/cv-yeray.pdf" target="_blank" rel="noopener" aria-label="Descargar Currículum Vitae de Yeray Navarro en PDF">Descargar CV</a>
-          </div>
-        </div>
-        <div class="hero-cards">
-          <div class="grid-tiles">
-            <div class="tile">Python</div><div class="tile">Java</div><div class="tile">SQL</div>
-            <div class="tile">HTML</div><div class="tile">CSS</div><div class="tile">JavaScript</div>
-            <div class="tile">React</div><div class="tile">Node.js</div><div class="tile">Git</div>
-          </div>
-        </div>
+      <div class="hero-prompt"><span class="prompt-user">yeray</span><span class="prompt-sep">@</span><span class="prompt-host">portfolio</span><span class="prompt-sep">:~$</span></div>
+      <h1 class="hero-title">
+        <span class="hero-comment">// Desarrollo</span>
+        <span class="hero-type-line">
+          <span id="typewriter" class="hero-typed"></span><span class="hero-cursor">_</span>
+        </span>
+      </h1>
+      <p class="hero-sub">
+        Aplicaciones y soluciones web que funcionan de verdad.<br>
+        Código limpio, entrega puntual, trato directo.
+      </p>
+      <div class="hero-ctas">
+        <a href="#proyectos" class="btn btn-primary">ver_proyectos() <span class="arrow">↓</span></a>
+        <a href="assets/cv-yeray.pdf" class="btn btn-ghost">descargar_cv.pdf</a>
+      </div>
+      <div class="hero-pills">
+        <span class="pill">Java</span>
+        <span class="pill">Python</span>
+        <span class="pill">React</span>
+        <span class="pill">Spring Boot</span>
+        <span class="pill">Kotlin</span>
+        <span class="pill">MySQL</span>
+      </div>
     </section>
 
-    <section id="proyectos" class="container section anchor">
-      <div class="section-head">
-        <h2>Proyectos destacados</h2>
-        <a class="muted link" href="proyectos/index.html">Ver todos →</a>
+    <section class="value-strip container" aria-label="Propuesta de valor">
+      <div class="value-item">
+        <div class="value-icon">⏱</div>
+        <div>
+          <strong>Respuesta ágil</strong>
+          <span>Feedback en menos de 24 h</span>
+        </div>
       </div>
+      <div class="value-sep" aria-hidden="true"></div>
+      <div class="value-item">
+        <div class="value-icon">🤝</div>
+        <div>
+          <strong>Trato directo</strong>
+          <span>Sin intermediarios</span>
+        </div>
+      </div>
+      <div class="value-sep" aria-hidden="true"></div>
+      <div class="value-item">
+        <div class="value-icon">💎</div>
+        <div>
+          <strong>Transparencia</strong>
+          <span>Presupuestos cerrados</span>
+        </div>
+      </div>
+    </section>
 
-      <div class="cards">
+    <section id="proyectos" class="section container">
+      <div class="section-header">
+        <span class="section-label">// trabajo reciente</span>
+        <h2 class="section-title">proyectos<span class="accent">.</span></h2>
+      </div>
+      <div class="project-grid">
 
-        <a class="card link-card" href="proyectos/proyecto-1.html">
-          <img src="assets/ladespensa.png" loading="lazy" alt="Captura del proyecto App La Despensa" class="card-img" />
-          <div class="card-body">
-            <h3>La despensa</h3>
-            <p>Aplicación Android para organizar recetas, planificar menús semanales y generar automáticamente listas de la compra agrupadas por categorías para cada hogar.</p>
-            <div class="chips">
-              <span class="chip">Kotlin</span>
-              <span class="chip">Room</span>
-              <span class="chip">Google Play Console</span>
-            </div>
+        <article class="project-card" data-reveal>
+          <div class="project-img">
+            <img src="assets/ladespensa.png" alt="La Despensa - App Android" loading="lazy">
+            <div class="project-overlay"><span class="project-type">App Android</span></div>
           </div>
-        </a>
-
-        <a class="card link-card" href="proyectos/proyecto-2.html">
-          <img src="assets/viveaigues.png" loading="lazy" alt="Captura del proyecto Plataforma Ciudadana Vive Aigües" class="card-img" />
-          <div class="card-body">
-            <h3>Plataforma ciudadana</h3>
-            <p>Aplicación web de gestión ciudadana que conecta a vecinos y ayuntamiento mediante buzones de sugerencias e incidencias,
-               tablón de anuncios, mapa interactivo y sistema de puntos por participación y voluntariado, también incluye un chatbot que responde las preguntas de los vecinos.</p>
-            <div class="chips">
-              <span class="chip">Python</span>
-              <span class="chip">Bootstrap</span>
-              <span class="chip">MySQL</span>
-            </div>
+          <div class="project-body">
+            <h3>La Despensa</h3>
+            <p>Gestión de recetas y listas de compra generadas automáticamente desde los ingredientes en casa.</p>
+            <div class="chips"><span>Kotlin</span><span>Room DB</span><span>MVVM</span></div>
           </div>
-        </a>
+        </article>
 
-        <a class="card link-card" href="proyectos/proyecto-3.html">
-          <img src="assets/zoavet.png" loading="lazy" alt="Captura del proyecto ZoaVet" class="card-img" />
-          <div class="card-body">
+        <article class="project-card" data-reveal>
+          <div class="project-img">
+            <img src="assets/viveaigues.png" alt="Vive Aigües - Plataforma ciudadana" loading="lazy">
+            <div class="project-overlay"><span class="project-type">Plataforma Web</span></div>
+          </div>
+          <div class="project-body">
+            <h3>Vive Aigües</h3>
+            <p>Plataforma ciudadana con mapa interactivo, incidencias en tiempo real y chatbot de atención.</p>
+            <div class="chips"><span>Python</span><span>MySQL</span><span>Leaflet.js</span></div>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal>
+          <div class="project-img">
+            <img src="assets/zoavet.png" alt="ZoaVet - Gestión veterinaria" loading="lazy">
+            <div class="project-overlay"><span class="project-type">App Empresarial</span></div>
+          </div>
+          <div class="project-body">
             <h3>ZoaVet</h3>
-            <p>Aplicación web para veterinarios a domicilio que permite gestionar animales, dueños, visitas y tratamientos activos, todo desde una interfaz sencilla y accesible.</p>
-            <div class="chips">
-              <span class="chip">Java</span>
-              <span class="chip">Spring Boot</span>
-              <span class="chip">GitHub</span>
+            <p>Sistema de gestión para veterinarios a domicilio: pacientes, visitas y tratamientos en la nube.</p>
+            <div class="chips"><span>Java</span><span>Spring Boot</span><span>GitHub CI</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="section about-section">
+      <div class="container about-grid">
+        <div class="about-text" data-reveal>
+          <span class="section-label">// quién soy</span>
+          <h2 class="section-title">formación<span class="accent">.</span><br>trayectoria<span class="accent">.</span></h2>
+          <p>
+            Formación sanitaria que me enseñó a trabajar con rigor, precisión y responsabilidad.
+            Titulado en <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong> y actualmente preparando
+            oposiciones de <strong>técnico auxiliar de informática</strong> estatal.
+          </p>
+          <p>
+            Creo en el software hecho con cuidado: arquitecturas limpias, documentación real y
+            entregas que no necesitan parches a los tres días.
+          </p>
+          <a href="#contacto" class="btn btn-primary" style="margin-top:1.5rem">hablemos() →</a>
+        </div>
+        <div class="about-stats" data-reveal>
+          <div class="stat-box">
+            <strong class="stat-num">8+</strong>
+            <span>Proyectos cloud desplegados</span>
+          </div>
+          <div class="stat-box">
+            <strong class="stat-num">DAM</strong>
+            <span>Titulación oficial</span>
+          </div>
+          <div class="stat-box">
+            <strong class="stat-num">24h</strong>
+            <span>Tiempo máximo de respuesta</span>
+          </div>
+          <div class="stat-box">
+            <strong class="stat-num">0</strong>
+            <span>Sorpresas en la factura final</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section container">
+      <div class="contact-wrap" data-reveal>
+        <div class="contact-info">
+          <span class="section-label">// empecemos</span>
+          <h2 class="section-title">¿tienes un<br>proyecto<span class="accent">?</span></h2>
+          <p>Cuéntame qué necesitas. Te doy una valoración técnica sin compromiso en menos de 24 horas.</p>
+          <div class="contact-links">
+            <a href="mailto:ny93yeray@gmail.com" class="contact-link">
+              <span class="contact-link-icon">✉</span>yeraynavarroyanini@gmail.com
+            </a>
+            <a href="tel:+34637659355" class="contact-link">
+              <span class="contact-link-icon">✆</span>+34 637 65 93 55
+            </a>
+          </div>
+        </div>
+        <form id="contactForm" action="https://formspree.io/f/xyzdgaja" method="POST" class="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">// nombre</label>
+              <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-field">
+              <label for="email">// email</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required>
             </div>
           </div>
-        </a>
+          <div class="form-field">
+            <label for="project_type">// tipo de proyecto</label>
+            <select id="project_type" name="project_type">
+              <option value="web">Web completa</option>
+              <option value="app">Aplicación a medida</option>
+              <option value="consultoria">Consultoría técnica</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="message">// mensaje</label>
+            <textarea id="message" name="message" placeholder="Cuéntame tu idea..." rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+            enviar_propuesta() <span class="arrow">→</span>
+          </button>
+          <div class="form-feedback" id="formFeedback"></div>
+        </form>
       </div>
     </section>
 
-    <section id="sobre-mi" class="container section anchor about">
-      <div class="about-grid">
-        <div class="about-text">
-          <h2>Sobre mí</h2>
-            <p>
-              Soy un <strong>desarrollador en formación continua</strong> con titulación en
-              <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong>. Trabajo con
-              <strong>Python, Java, Kotlin, React, Node.js, HTML, CSS, JavaScript</strong> y bases de datos
-              <strong>MySQL y SQLite</strong>, además de usar <strong>Git y GitHub</strong> como herramientas de control de versiones.
-              Me interesa aplicar buenas prácticas como <em>código limpio, testing básico y documentación clara</em>.
-            </p>
-            
-            <p>
-              Aunque mi formación principal está en el <strong>desarrollo de aplicaciones y web</strong>, también me atraen
-              otras áreas del mundo tecnológico: <strong>análisis e ingeniería de datos, inteligencia artificial,
-              ciberseguridad o incluso desarrollo de videojuegos</strong>. Estoy abierto a especializarme según el equipo
-              y la empresa donde me incorpore, creciendo junto a ellos y aportando desde el primer día.
-            </p>
-            
-            <p>
-              Antes de dedicarme a la programación trabajé en el sector sanitario, en entornos de alta presión donde
-              desarrollé <strong>capacidad de comunicación, coordinación y trabajo en equipo</strong>. Esa experiencia me
-              da una base sólida de madurez y compromiso que ahora aplico en mi carrera como desarrollador.
-            </p>
-        </div>
-        <img src="assets/foto-perfil.png" alt="Fotografía profesional de Yeray Navarro" class="about-photo" />
-      </div>
-    </section>
-
-    <section id="contacto" class="contact">
-        <div class="container contact-wrapper">
-
-            <div class="confidence-points-horizontal">
-                <h4>¡Trabaja conmigo con total confianza!</h4>
-                <div class="points-grid">
-                    <div class="point-item">
-                        <span class="icon">💰</span>
-                        <p><strong>Claro y Transparente:</strong> Sin costes ocultos ni sorpresas en la factura.</p>
-                    </div>
-                    <div class="point-item">
-                        <span class="icon">⏱️</span>
-                        <p><strong>Respuesta Ágil:</strong> Te respondo en un máximo de 24 horas.</p>
-                    </div>
-                    <div class="point-item">
-                        <span class="icon">💬</span>
-                        <p><strong>Trato Directo:</strong> Hablas con Yeray, sin intermediarios.</p>
-                    </div>
-                </div>
-            </div>
-
-            <form id="contactForm"
-                action="https://formspree.io/f/xyzdgaja"
-                method="POST"
-                class="contact-form"
-                novalidate> 
-
-                <h3>¡Cuéntame tu idea y te doy una respuesta personalizada!</h3>
-
-                <input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio">
-                <input type="hidden" name="page" value="Página de inicio">
-
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="telefono">Teléfono (Opcional)</label>
-                    <input type="tel" id="telefono" name="phone">
-                </div>
-                <div class="form-group">
-                    <label for="tipo">Tipo de Proyecto (Opcional)</label>
-                    <select id="tipo" name="project_type">
-                        <option value="">Selecciona...</option>
-                        <option value="portfolio">Portfolio</option>
-                        <option value="web-simple">Web Simple</option>
-                        <option value="arreglo">Arreglo de Código / Tarea</option>
-                        <option value="consultoria">Consultoría / Proyecto a Medida</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Mensaje (Sé lo más específico posible)</label>
-                    <textarea id="mensaje" name="message" rows="4" required></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-block" id="sendBtn">
-                    ENVIAR
-                </button>
-                <p class="form-status" id="formStatus" aria-live="polite"></p>
-
-
-                <div class="direct-contact-footer">
-                    <p>¿Prefieres no usar el formulario? Contáctame directamente:</p>
-                    <a href="https://wa.me/34637659355" target="_blank" class="contact-link">💬 WhatsApp (+34 637 65 93 55)</a>
-                    |
-                    <a href="mailto:ny93yeray@gmail.com" class="contact-link">✉️ Email</a>
-                    |
-                    <a href="tel:+34637659355" class="contact-link">📞 Llamar</a>
-                </div>
-            </form>
-
-        </div>
-    </section>
-    </main>
+  </main>
 
   <footer class="footer">
-      <div class="container footer-content">
-          <div class="copyright">
-              &copy; 2025 Yeray Navarro. Todos los derechos reservados.
-          </div>
-      </div>
+    <div class="container footer-inner">
+      <span class="brand">YN<span class="brand-dot">></span></span>
+      <p>© 2026 Yeray Navarro · Alicante, España</p>
+      <button class="back-top" id="backTop" aria-label="Volver arriba">↑</button>
+    </div>
   </footer>
 
-  <script src="main.js?v=13r"></script>
+  <script src="main.js"></script>
 </body>
 </html>

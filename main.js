@@ -1,162 +1,137 @@
-// v13-rev: typewriter effect + smooth scroll nativo
-const html = document.documentElement;
-const toggle = document.getElementById('themeToggle');
-const yearEl = document.getElementById('year');
-const navToggle = document.getElementById('navToggle');
-const mobileMenu = document.getElementById('mobileMenu');
+document.addEventListener('DOMContentLoaded', () => {
 
-// Función para actualizar el icono del botón según el tema actual
-function updateThemeIcon(theme) {
-  toggle.textContent = theme === 'light' ? '🌙' : '☀️';
-}
+  /* ──────────────────────────────────
+     TYPEWRITER — sin layout shift
+     La línea ya tiene min-height reservado en CSS,
+     así que cambiar el texto no mueve nada.
+  ────────────────────────────────── */
+  const phrases = [
+    "software eficiente.",
+    "apps que escalan.",
+    "código con propósito.",
+    "soluciones reales."
+  ];
+  const el = document.getElementById('typewriter');
+  let phraseIdx = 0, charIdx = 0, deleting = false, paused = false;
 
-// 1️⃣ Cargar el tema guardado o usar light por defecto
-try {
-  const saved = localStorage.getItem('theme');
-  const theme = saved ?? 'light'; // si no hay nada, usa light
-  html.setAttribute('data-theme', theme);
-  updateThemeIcon(theme);
-} catch {
-  html.setAttribute('data-theme', 'light');
-  updateThemeIcon('light');
-}
+  function type() {
+    if (paused) return;
+    const current = phrases[phraseIdx];
 
-// 2️⃣ Alternar entre light/dark al pulsar el botón
-toggle?.addEventListener('click', () => {
-  const current = html.getAttribute('data-theme');
-  const next = current === 'dark' ? 'light' : 'dark';
-  html.setAttribute('data-theme', next);
-  updateThemeIcon(next);
-  try {
-    localStorage.setItem('theme', next);
-  } catch {}
-});
-
-// 3️⃣ Año del footer
-if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-// Mobile menu open/close
-function openMenu(){ mobileMenu?.classList.remove('hidden'); navToggle?.setAttribute('aria-expanded','true'); }
-function closeMenu(){ mobileMenu?.classList.add('hidden'); navToggle?.setAttribute('aria-expanded','false'); }
-navToggle?.addEventListener('click', () => {
-  if (!mobileMenu) return;
-  const isOpen = !mobileMenu.classList.contains('hidden');
-  (isOpen ? closeMenu : openMenu)();
-});
-document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => closeMenu()));
-window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
-document.addEventListener('scroll', () => { if (window.innerWidth <= 900) closeMenu(); }, { passive: true });
-
-// Typewriter effect en bucle (solo desktop, no afecta móvil)
-const typewriterEl = document.getElementById('typewriter');
-if (typewriterEl && window.innerWidth > 900) {
-  const text = typewriterEl.textContent;
-  typewriterEl.textContent = '';
-  typewriterEl.style.opacity = '1';
-  
-  let i = 0;
-  let isDeleting = false;
-  
-  function typeLoop() {
-    if (!isDeleting && i < text.length) {
-      // Escribiendo
-      typewriterEl.textContent += text.charAt(i);
-      i++;
-      setTimeout(typeLoop, 120); // velocidad de escritura
-    } else if (!isDeleting && i === text.length) {
-      // Pausa cuando termina de escribir
-      isDeleting = true;
-      setTimeout(typeLoop, 2000); // pausa antes de borrar
-    } else if (isDeleting && i > 0) {
-      // Borrando
-      typewriterEl.textContent = text.substring(0, i - 1);
-      i--;
-      setTimeout(typeLoop, 80); // velocidad de borrado (más rápido)
-    } else if (isDeleting && i === 0) {
-      // Reiniciar ciclo
-      isDeleting = false;
-      setTimeout(typeLoop, 500); // pausa antes de volver a escribir
+    if (!deleting) {
+      charIdx++;
+      el.textContent = current.slice(0, charIdx);
+      if (charIdx === current.length) {
+        paused = true;
+        setTimeout(() => { paused = false; deleting = true; type(); }, 2200);
+        return;
+      }
+      setTimeout(type, 75);
+    } else {
+      charIdx--;
+      el.textContent = current.slice(0, charIdx);
+      if (charIdx === 0) {
+        deleting = false;
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+        setTimeout(type, 400);
+        return;
+      }
+      setTimeout(type, 38);
     }
   }
-  
-  // Pequeño delay antes de empezar
-  setTimeout(typeLoop, 500);
-}
+  if (el) { el.textContent = ''; type(); }
 
-// Glow + Tilt effect for cards
-const cards = document.querySelectorAll('.card');
-cards.forEach(card => {
-  let raf = 0; const maxTilt = 8;
-  function update(e){
-    const r = card.getBoundingClientRect();
-    const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
-    const rx = (py - .5) * -2 * maxTilt, ry = (px - .5) * 2 * maxTilt;
-    card.style.setProperty('--mx', (px*100)+'%'); card.style.setProperty('--my', (py*100)+'%');
-    card.style.transform = `translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg)`;
-  }
-  function reset(){ card.style.transform = 'translateY(0) rotateX(0) rotateY(0)'; }
-  card.addEventListener('pointerenter', e => { cancelAnimationFrame(raf); update(e); });
-  card.addEventListener('pointermove', e => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => update(e)); });
-  card.addEventListener('pointerleave', () => { cancelAnimationFrame(raf); reset(); });
-});
 
-// Copiar al portapapeles (email/teléfono)
-document.querySelectorAll('.chip-btn[data-copy]').forEach(btn => {
-  btn.addEventListener('click', async () => {
-    const value = btn.getAttribute('data-copy');
-    try {
-      await navigator.clipboard.writeText(value);
-      const old = btn.textContent;
-      btn.textContent = 'Copiado ✓';
-      setTimeout(() => btn.textContent = old, 1200);
-    } catch {
-      // Fallback simple: seleccionar texto dentro del enlace hermano
-      const link = btn.parentElement.querySelector('.chip-link span');
-      if (!link) return;
-      const r = document.createRange(); r.selectNode(link);
-      const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
-      document.execCommand('copy'); sel.removeAllRanges();
-      const old = btn.textContent; btn.textContent = 'Copiado ✓';
-      setTimeout(() => btn.textContent = old, 1200);
-    }
+  /* ──────────────────────────────────
+     HEADER SCROLL
+  ────────────────────────────────── */
+  const header = document.querySelector('.site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+
+  /* ──────────────────────────────────
+     MENÚ MÓVIL
+  ────────────────────────────────── */
+  const menuBtn   = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+
+  menuBtn?.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
   });
-});
 
-// Envío real con Formspree
-const form = document.getElementById('contactForm');
-const sendBtn = document.getElementById('sendBtn');
-const statusEl = document.getElementById('formStatus');
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
 
-if (form) {
-  form.addEventListener('submit', async (e) => {
+
+  /* ──────────────────────────────────
+     REVEAL ON SCROLL (sin stagger agresivo)
+  ────────────────────────────────── */
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      // Stagger suave solo entre siblings directos
+      const siblings = [...entry.target.parentElement.children].filter(
+        el => el.hasAttribute('data-reveal')
+      );
+      const idx = siblings.indexOf(entry.target);
+      entry.target.style.transitionDelay = `${idx * 70}ms`;
+      entry.target.classList.add('visible');
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.1 });
+
+  revealEls.forEach(el => obs.observe(el));
+
+
+  /* ──────────────────────────────────
+     BOTÓN VOLVER ARRIBA — scroll real
+  ────────────────────────────────── */
+  const backTop = document.getElementById('backTop');
+  backTop?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+
+  /* ──────────────────────────────────
+     FORMULARIO ASYNC
+  ────────────────────────────────── */
+  const form      = document.getElementById('contactForm');
+  const feedback  = document.getElementById('formFeedback');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    statusEl.textContent = 'Enviando...';
-    sendBtn.disabled = true;
-
-    const data = new FormData(form);
-    data.append('_subject', 'Nuevo mensaje desde el portfolio');
-    data.append('page', window.location.href);
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'enviando...';
+    feedback.className = 'form-feedback';
+    feedback.textContent = '';
 
     try {
       const res = await fetch(form.action, {
         method: 'POST',
-        body: data,
+        body: new FormData(form),
         headers: { 'Accept': 'application/json' }
       });
-
       if (res.ok) {
+        feedback.className = 'form-feedback success';
+        feedback.textContent = '> mensaje enviado. respondo en menos de 24h.';
         form.reset();
-        statusEl.textContent = '¡Gracias! Te responderé en cuanto pueda.';
-      } else {
-        const err = await res.json().catch(() => null);
-        statusEl.textContent =
-          (err && err.errors && err.errors.map(e => e.message).join(', '))
-          || 'Ups, no se pudo enviar. Intenta de nuevo en un momento.';
-      }
-    } catch (_) {
-      statusEl.textContent = 'Error de conexión. Revisa tu red y vuelve a intentar.';
-    } finally {
-      sendBtn.disabled = false;
+      } else throw new Error();
+    } catch {
+      feedback.className = 'form-feedback error';
+      feedback.textContent = '> error. escríbeme a ny93yeray@gmail.com';
     }
+
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = 'enviar_propuesta() <span class="arrow">→</span>';
   });
-}
+
+});
