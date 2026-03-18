@@ -1,236 +1,439 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yeray Navarro · Desarrollador</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yeray Navarro</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="bg-canvas" aria-hidden="true">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="grid-overlay"></div>
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <img src="assets/favicon.png" alt="Yeray Navarro" class="nav-logo-badge">
+    Yeray Navarro
+  </a>
+
+  <div class="nav-right">
+    <!-- Servicios dropdown -->
+    <div class="nav-item">
+      <button class="nav-item-btn">
+        Servicios
+        <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="nav-dropdown">
+        <div class="nav-dropdown-inner">
+        <a href="#servicios" onclick="setTimeout(()=>document.querySelector('[data-cat=web]').click(),300)">
+          <div class="nav-dropdown-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          Desarrollo web
+        </a>
+        <div class="nav-dropdown-sep"></div>
+        <a href="#servicios" onclick="setTimeout(()=>document.querySelector('[data-cat=auto]').click(),300)">
+          <div class="nav-dropdown-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          Automatizaciones
+        </a>
+        <div class="nav-dropdown-sep"></div>
+        <a href="#servicios" onclick="setTimeout(()=>document.querySelector('[data-cat=consultoria]').click(),300)">
+          <div class="nav-dropdown-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+          Consultoría
+        </a>
+        <div class="nav-dropdown-sep"></div>
+        <a href="#servicios" onclick="setTimeout(()=>document.querySelector('[data-cat=soluciones]').click(),300)">
+          <div class="nav-dropdown-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          Soluciones
+        </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sobre mí -->
+    <div class="nav-item">
+      <a href="#sobre-mi" class="nav-item-btn">Sobre mí</a>
+    </div>
+
+    <!-- Proyectos -->
+    <div class="nav-item">
+      <a href="#proyectos" class="nav-item-btn">Proyectos</a>
+    </div>
+
+    <a href="#contacto" class="nav-cta">Hablemos <span class="btn-arrow">↗</span></a>
   </div>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#" class="brand">YN<span class="brand-dot">></span></a>
-      <nav class="nav">
-        <a href="#proyectos">proyectos</a>
-        <a href="#sobre-mi">sobre_mi</a>
-        <a href="#contacto">contacto</a>
-      </nav>
-      <button class="menu-btn" id="menuBtn" aria-label="Menú" aria-expanded="false">
-        <span></span><span></span>
+  <button class="nav-hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu">
+  <a href="#servicios">Servicios</a>
+  <a href="#sobre-mi">Sobre mí</a>
+  <a href="#proyectos">Proyectos</a>
+  <a href="#contacto">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-avail"><div class="hero-avail-dot"></div>Disponible para proyectos</div>
+      <h1 class="hero-title">Hola, soy<br><span class="accent">Yeray Navarro</span></h1>
+      <p class="hero-role">Desarrollador fullstack · Soluciones rápidas, cercanas y a bajo coste.</p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn-primary">Hablemos <span class="btn-arrow">↗</span></a>
+        <a href="#proyectos" class="btn-outline">Ver proyectos <span class="btn-arrow">↗</span></a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/YerayN" class="social-link" title="GitHub" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg></a>
+        <a href="https://www.linkedin.com/in/yeray-navarro/" class="social-link" title="LinkedIn" target="_blank"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://www.instagram.com/yeraynavarroy_/" class="social-link" title="Instagram" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="assets/foto-frontal.png" alt="Tu Nombre">
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="container" style="text-align:center; margin-bottom:2.5rem;">
+    <span class="eyebrow">Servicios</span>
+    <h2 class="section-title">Lo que necesitas,<br><span>sin complicaciones.</span></h2>
+    <p class="section-sub" style="margin:0 auto;">Elige la categoría que encaja con tu proyecto y descubre las opciones disponibles.</p>
+  </div>
+  <div class="container">
+
+    <!-- Category pills selector -->
+    <div class="cat-selector">
+      <button class="cat-pill" data-cat="web">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        Desarrollo web
+      </button>
+      <button class="cat-pill" data-cat="auto">
+        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        Automatizaciones
+      </button>
+      <button class="cat-pill" data-cat="consultoria">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        Consultoría
+      </button>
+      <button class="cat-pill" data-cat="soluciones">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        Soluciones a medida
       </button>
     </div>
-  </header>
 
-  <div class="mobile-nav" id="mobileNav">
-    <a href="#proyectos" class="mobile-link">proyectos</a>
-    <a href="#sobre-mi" class="mobile-link">sobre_mi</a>
-    <a href="#contacto" class="mobile-link">contacto</a>
-  </div>
-
-  <main>
-
-    <section class="hero container">
-      <div class="hero-prompt"><span class="prompt-user">yeray</span><span class="prompt-sep">@</span><span class="prompt-host">portfolio</span><span class="prompt-sep">:~$</span></div>
-      <h1 class="hero-title">
-        <span class="hero-comment">// Desarrollo</span>
-        <span class="hero-type-line">
-          <span id="typewriter" class="hero-typed"></span><span class="hero-cursor">_</span>
-        </span>
-      </h1>
-      <p class="hero-sub">
-        Aplicaciones y soluciones web que funcionan de verdad.<br>
-        Código limpio, entrega puntual, trato directo.
-      </p>
-      <div class="hero-ctas">
-        <a href="#proyectos" class="btn btn-primary">ver_proyectos() <span class="arrow">↓</span></a>
-        <a href="assets/cv-yeray.pdf" class="btn btn-ghost">descargar_cv.pdf</a>
-      </div>
-      <div class="hero-pills">
-        <span class="pill">Java</span>
-        <span class="pill">Python</span>
-        <span class="pill">React</span>
-        <span class="pill">Spring Boot</span>
-        <span class="pill">Kotlin</span>
-        <span class="pill">MySQL</span>
-      </div>
-    </section>
-
-    <section class="value-strip container" aria-label="Propuesta de valor">
-      <div class="value-item">
-        <div class="value-icon">⏱</div>
-        <div>
-          <strong>Respuesta ágil</strong>
-          <span>Feedback en menos de 24 h</span>
+    <!-- DESARROLLO WEB -->
+    <div class="srv-category" data-cat="web">
+      <div class="srv-grid">
+        <div class="srv-card">
+          <span class="srv-tier tier-esencial">Esencial</span>
+          <p class="srv-plan-name">Web escaparate</p>
+          <p class="srv-plan-desc">Tu presencia online lista y funcional en tiempo récord.</p>
+          <div class="srv-price"><span class="srv-price-from">desde</span><span class="srv-price-amount">150€</span><span class="srv-price-label">/ proyecto</span></div>
+          <hr class="srv-divider">
+          <ul class="srv-features">
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Diseño responsive</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>SEO básico incluido</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Formulario de contacto</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Entrega en 7 días</li>
+          </ul>
+          <button class="srv-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Hablamos <span class="btn-arrow">↗</span></button>
+        </div>
+        <div class="srv-card featured">
+          <div class="srv-badge-top">Más popular</div>
+          <span class="srv-tier tier-avanzado">Avanzado</span>
+          <p class="srv-plan-name">Web + CMS</p>
+          <p class="srv-plan-desc">Diseño profesional con panel para gestionar tu contenido tú mismo.</p>
+          <div class="srv-price"><span class="srv-price-from">desde</span><span class="srv-price-amount">350€</span><span class="srv-price-label">/ proyecto</span></div>
+          <hr class="srv-divider">
+          <ul class="srv-features">
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Todo lo del Esencial</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Panel de gestión de contenido</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Blog o sección de noticias</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Multiidioma opcional</li>
+          </ul>
+          <button class="srv-btn featured-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Hablamos <span class="btn-arrow">↗</span></button>
+        </div>
+        <div class="srv-card">
+          <span class="srv-tier tier-total">Total</span>
+          <p class="srv-plan-name">Tienda online</p>
+          <p class="srv-plan-desc">Ecommerce completo listo para vender desde el día uno.</p>
+          <div class="srv-price"><span class="srv-price-from">desde</span><span class="srv-price-amount">600€</span><span class="srv-price-label">/ proyecto</span></div>
+          <hr class="srv-divider">
+          <ul class="srv-features">
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Catálogo de productos</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Pasarela de pago integrada</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Gestión de pedidos</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Panel de administración</li>
+          </ul>
+          <button class="srv-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Hablamos <span class="btn-arrow">↗</span></button>
         </div>
       </div>
-      <div class="value-sep" aria-hidden="true"></div>
-      <div class="value-item">
-        <div class="value-icon">🤝</div>
-        <div>
-          <strong>Trato directo</strong>
-          <span>Sin intermediarios</span>
-        </div>
-      </div>
-      <div class="value-sep" aria-hidden="true"></div>
-      <div class="value-item">
-        <div class="value-icon">💎</div>
-        <div>
-          <strong>Transparencia</strong>
-          <span>Presupuestos cerrados</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="proyectos" class="section container">
-      <div class="section-header">
-        <span class="section-label">// trabajo reciente</span>
-        <h2 class="section-title">proyectos<span class="accent">.</span></h2>
-      </div>
-      <div class="project-grid">
-
-        <article class="project-card" data-reveal>
-          <div class="project-img">
-            <img src="assets/ladespensa.png" alt="La Despensa - App Android" loading="lazy">
-            <div class="project-overlay"><span class="project-type">App Android</span></div>
-          </div>
-          <div class="project-body">
-            <h3>La Despensa</h3>
-            <p>Gestión de recetas y listas de compra generadas automáticamente desde los ingredientes en casa.</p>
-            <div class="chips"><span>Kotlin</span><span>Room DB</span><span>MVVM</span></div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-img">
-            <img src="assets/viveaigues.png" alt="Vive Aigües - Plataforma ciudadana" loading="lazy">
-            <div class="project-overlay"><span class="project-type">Plataforma Web</span></div>
-          </div>
-          <div class="project-body">
-            <h3>Vive Aigües</h3>
-            <p>Plataforma ciudadana con mapa interactivo, incidencias en tiempo real y chatbot de atención.</p>
-            <div class="chips"><span>Python</span><span>MySQL</span><span>Leaflet.js</span></div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-img">
-            <img src="assets/zoavet.png" alt="ZoaVet - Gestión veterinaria" loading="lazy">
-            <div class="project-overlay"><span class="project-type">App Empresarial</span></div>
-          </div>
-          <div class="project-body">
-            <h3>ZoaVet</h3>
-            <p>Sistema de gestión para veterinarios a domicilio: pacientes, visitas y tratamientos en la nube.</p>
-            <div class="chips"><span>Java</span><span>Spring Boot</span><span>GitHub CI</span></div>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <section id="sobre-mi" class="section about-section">
-      <div class="container about-grid">
-        <div class="about-text" data-reveal>
-          <span class="section-label">// quién soy</span>
-          <h2 class="section-title">formación<span class="accent">.</span><br>trayectoria<span class="accent">.</span></h2>
-          <p>
-            Formación sanitaria que me enseñó a trabajar con rigor, precisión y responsabilidad.
-            Titulado en <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong> y actualmente preparando
-            oposiciones de <strong>técnico auxiliar de informática</strong> estatal.
-          </p>
-          <p>
-            Creo en el software hecho con cuidado: arquitecturas limpias, documentación real y
-            entregas que no necesitan parches a los tres días.
-          </p>
-          <a href="#contacto" class="btn btn-primary" style="margin-top:1.5rem">hablemos() →</a>
-        </div>
-        <div class="about-stats" data-reveal>
-          <div class="stat-box">
-            <strong class="stat-num">8+</strong>
-            <span>Proyectos cloud desplegados</span>
-          </div>
-          <div class="stat-box">
-            <strong class="stat-num">DAM</strong>
-            <span>Titulación oficial</span>
-          </div>
-          <div class="stat-box">
-            <strong class="stat-num">24h</strong>
-            <span>Tiempo máximo de respuesta</span>
-          </div>
-          <div class="stat-box">
-            <strong class="stat-num">0</strong>
-            <span>Sorpresas en la factura final</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contacto" class="section container">
-      <div class="contact-wrap" data-reveal>
-        <div class="contact-info">
-          <span class="section-label">// empecemos</span>
-          <h2 class="section-title">¿tienes un<br>proyecto<span class="accent">?</span></h2>
-          <p>Cuéntame qué necesitas. Te doy una valoración técnica sin compromiso en menos de 24 horas.</p>
-          <div class="contact-links">
-            <a href="mailto:ny93yeray@gmail.com" class="contact-link">
-              <span class="contact-link-icon">✉</span>yeraynavarroyanini@gmail.com
-            </a>
-            <a href="tel:+34637659355" class="contact-link">
-              <span class="contact-link-icon">✆</span>+34 637 65 93 55
-            </a>
-          </div>
-        </div>
-        <form id="contactForm" action="https://formspree.io/f/xyzdgaja" method="POST" class="contact-form">
-          <div class="form-row">
-            <div class="form-field">
-              <label for="name">// nombre</label>
-              <input type="text" id="name" name="name" placeholder="Tu nombre" required>
-            </div>
-            <div class="form-field">
-              <label for="email">// email</label>
-              <input type="email" id="email" name="email" placeholder="tu@email.com" required>
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="project_type">// tipo de proyecto</label>
-            <select id="project_type" name="project_type">
-              <option value="web">Web completa</option>
-              <option value="app">Aplicación a medida</option>
-              <option value="consultoria">Consultoría técnica</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="message">// mensaje</label>
-            <textarea id="message" name="message" placeholder="Cuéntame tu idea..." rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
-            enviar_propuesta() <span class="arrow">→</span>
-          </button>
-          <div class="form-feedback" id="formFeedback"></div>
-        </form>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span class="brand">YN<span class="brand-dot">></span></span>
-      <p>© 2026 Yeray Navarro · Alicante, España</p>
-      <button class="back-top" id="backTop" aria-label="Volver arriba">↑</button>
     </div>
-  </footer>
 
-  <script src="main.js"></script>
+    <!-- AUTOMATIZACIONES -->
+    <div class="srv-category" data-cat="auto">
+      <div class="srv-grid">
+        <div class="srv-card">
+          <span class="srv-tier tier-esencial">Esencial</span>
+          <p class="srv-plan-name">Flujo simple</p>
+          <p class="srv-plan-desc">Automatiza una tarea repetitiva y ahorra horas cada semana.</p>
+          <div class="srv-price"><span class="srv-price-from">desde</span><span class="srv-price-amount">95€</span><span class="srv-price-label">/ proyecto</span></div>
+          <hr class="srv-divider">
+          <ul class="srv-features">
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>n8n / Zapier / Make</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>1 flujo configurado</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Documentación incluida</li>
+          </ul>
+          <button class="srv-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Hablamos <span class="btn-arrow">↗</span></button>
+        </div>
+        <div class="srv-card featured">
+          <div class="srv-badge-top">Más popular</div>
+          <span class="srv-tier tier-avanzado">Avanzado</span>
+          <p class="srv-plan-name">Sistema conectado</p>
+          <p class="srv-plan-desc">Conecta tus herramientas: CRM, email, hojas de cálculo, Slack...</p>
+          <div class="srv-price"><span class="srv-price-from">desde</span><span class="srv-price-amount">250€</span><span class="srv-price-label">/ proyecto</span></div>
+          <hr class="srv-divider">
+          <ul class="srv-features">
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Hasta 5 flujos</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Integraciones múltiples</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Alertas y notificaciones</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>1 mes de soporte</li>
+          </ul>
+          <button class="srv-btn featured-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Hablamos <span class="btn-arrow">↗</span></button>
+        </div>
+        <div class="srv-card">
+          <span class="srv-tier tier-total">Total</span>
+          <p class="srv-plan-name">Automatización total</p>
+          <p class="srv-plan-desc">Auditoría completa + implementación de todos los procesos clave.</p>
+          <div class="srv-price"><span class="srv-price-from">desde</span><span class="srv-price-amount">450€</span><span class="srv-price-label">/ proyecto</span></div>
+          <hr class="srv-divider">
+          <ul class="srv-features">
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Flujos ilimitados</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Scripts Python a medida</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Formación incluida</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>3 meses de soporte</li>
+          </ul>
+          <button class="srv-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Hablamos <span class="btn-arrow">↗</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONSULTORÍA -->
+    <div class="srv-category" data-cat="consultoria">
+      <div class="srv-grid srv-grid--2col">
+        <div class="srv-card">
+          <span class="srv-tier tier-esencial">Arreglos puntuales</span>
+          <p class="srv-plan-name">Sesión rápida</p>
+          <p class="srv-plan-desc">Una hora para resolver dudas, revisar código o desbloquear tu proyecto.</p>
+          <div class="srv-price"><span class="srv-price-from">desde</span><span class="srv-price-amount">30€</span><span class="srv-price-label">/ sesión</span></div>
+          <hr class="srv-divider">
+          <ul class="srv-features">
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>1h por videollamada</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Resumen escrito</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Respuesta en 24h</li>
+          </ul>
+          <button class="srv-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Hablamos <span class="btn-arrow">↗</span></button>
+        </div>
+        <div class="srv-card featured">
+          <div class="srv-badge-top">Más popular</div>
+          <span class="srv-tier tier-avanzado">Mantenimiento</span>
+          <p class="srv-plan-name">Mantenimiento mensual</p>
+          <p class="srv-plan-desc">Auditoría técnica de tu código o arquitectura con informe detallado.</p>
+          <div class="srv-price"><span class="srv-price-from">desde</span><span class="srv-price-amount">50€</span><span class="srv-price-label">/ mensuales</span></div>
+          <hr class="srv-divider">
+          <ul class="srv-features">
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Análisis de código</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Recomendaciones de mejora</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Informe PDF detallado</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Sesión de seguimiento</li>
+          </ul>
+          <button class="srv-btn featured-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Hablamos <span class="btn-arrow">↗</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Soluciones a medida -->
+    <div class="srv-category" data-cat="soluciones">
+      <div class="srv-grid">
+        <div class="srv-card">
+          <span class="srv-tier tier-esencial">Esencial</span>
+          <p class="srv-plan-name">Herramienta Interna</p>
+          <p class="srv-plan-desc">Un panel sencillo para gestionar tus datos (clientes, inventario o citas) sin hojas de cálculo infinitas.</p>
+          <div class="srv-price"><span class="srv-price-from">desde</span><span class="srv-price-amount">300€</span><span class="srv-price-label">/ proyecto</span></div>
+          <hr class="srv-divider">
+          <ul class="srv-features">
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Base de datos a medida (SQL/NoSQL)</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Panel de administración para crear/editar datos</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Exportación de informes a Excel/PDF</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Seguridad básica y copias de seguridad</li>
+          </ul>
+          <button class="srv-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Hablamos <span class="btn-arrow">↗</span></button>
+        </div>
+        <div class="srv-card featured">
+          <div class="srv-badge-top">Más popular</div>
+          <span class="srv-tier tier-avanzado">Avanzado</span>
+          <p class="srv-plan-name">Sistema conectado</p>
+          <p class="srv-plan-desc">Una aplicación web que conecta tu base de datos con pagos (Stripe), avisos al móvil y varios niveles de usuario.</p>
+          <div class="srv-price"><span class="srv-price-from">desde</span><span class="srv-price-amount">650€</span><span class="srv-price-label">/ proyecto</span></div>
+          <hr class="srv-divider">
+          <ul class="srv-features">
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Todo lo del anterior.</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Sistema de usuarios (Login con Roles: Jefe/Empleado)</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Integración con APIs externas (Pagos, WhatsApp, Email)</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Despliegue en la nube (VPS) incluido el primer mes</li>
+          </ul>
+          <button class="srv-btn featured-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Hablamos <span class="btn-arrow">↗</span></button>
+        </div>
+        <div class="srv-card">
+          <span class="srv-tier tier-total">Total</span>
+          <p class="srv-plan-name">Software Propio</p>
+          <p class="srv-plan-desc">Desarrollo completo de una idea desde cero. Tu propia plataforma con lógica compleja y soporte dedicado.</p>
+          <div class="srv-price"><span class="srv-price-from">desde</span><span class="srv-price-amount">1200€</span><span class="srv-price-label">/ proyecto</span></div>
+          <hr class="srv-divider">
+          <ul class="srv-features">
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Arquitectura escalable para muchos usuarios</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Lógica de negocio compleja (ej: algoritmos de cálculo, gestión de turnos)</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>Panel de analíticas e indicadores (KPIs)</li>
+            <li><span class="srv-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>3 meses de garantía y soporte técnico</li>
+          </ul>
+          <button class="srv-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Hablamos <span class="btn-arrow">↗</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="srv-footer-strip">
+      <span class="srv-footer-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Sin costes ocultos</span>
+      <span class="srv-footer-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Respuesta en 24h</span>
+      <span class="srv-footer-item"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Trato cercano y directo</span>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-img">
+        <img src="assets/imagen-about.jpg" alt="Tu Nombre">
+      </div>
+      <div>
+        <span class="eyebrow">Sobre mí</span>
+        <h2 class="section-title" style="margin-bottom:1.25rem;">Código con propósito,<br>resultados <span>de verdad.</span></h2>
+        <p class="about-text">Hola, soy <strong>Yeray Navarro</strong>. Tras años en el sector sanitario, decidí dar el salto a la programación para construir soluciones que de verdad ayuden a las personas. Mi enfoque es simple: <strong>menos jerga técnica y más resultados</strong>.</p>
+        <p class="about-text">No busco entregarte el código más complejo del mundo, sino el que mejor resuelva tu problema. Si tienes una idea, un proyecto atascado o necesitas digitalizar tu negocio sin que te explote la cabeza con términos raros, estoy aquí para que lo hagamos realidad juntos, paso a paso.</p>
+        <a href="#contacto" class="btn-primary" style="display:inline-flex; margin-top:0.5rem;">Hablemos <span class="btn-arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+  <div class="container" style="text-align:center; margin-bottom:2.5rem;">
+    <span class="eyebrow">Proyectos</span>
+    <h2 class="section-title">Lo que he construido</h2>
+    <p class="section-sub" style="margin:0 auto;">Algunos proyectos en los que he puesto el alma, cada uno con su historia.</p>
+  </div>
+  <div class="container">
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-img">
+          <img src="assets/ladespensa.png" alt="La Despensa">
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags"><span class="proj-tag">Kotlin</span><span class="proj-tag">Android Studio</span></div>
+          <p class="proj-name">La Despensa</p>
+          <p class="proj-desc">Aplicación que gestiona las recetas del usuario y en base a estas, permite al usuario planificar las comidas semanales y genera listas de la compra automáticas.</p>
+          <div class="proj-actions">
+            <a href="#" class="proj-btn proj-btn-demo">Demo <span class="btn-arrow">↗</span></a>
+            <a href="#" class="proj-btn proj-btn-repo">GitHub <span class="btn-arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img">
+          <img src="assets/proteccion.png" alt="La Despensa">
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JS</span><span class="proj-tag">Supabase</span></div>
+          <p class="proj-name">Protección Civil Aigües</p>
+          <p class="proj-desc">Muestra datos de la corporación y avisos a la población en su página principal. En su parte interna, es una app de gestión de voluntarios, con sistema de fichaje, gestión de inventario, etc.</p>
+          <div class="proj-actions">
+            <a href="#" class="proj-btn proj-btn-demo">Demo <span class="btn-arrow">↗</span></a>
+            <a href="#" class="proj-btn proj-btn-repo">GitHub <span class="btn-arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img">
+          <img src="assets/viveaigues.png" alt="La Despensa">
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JS</span></div>
+          <p class="proj-name">Plataforma Ciudadana</p>
+          <p class="proj-desc">Sirve para dar información a la población y que participen activamente. El gobierno local recibe ese feedback permitiendo mejorar su gestión y atención a las peticiones de las personas.</p>
+          <div class="proj-actions">
+            <a href="#" class="proj-btn proj-btn-demo">Demo <span class="btn-arrow">↗</span></a>
+            <a href="#" class="proj-btn proj-btn-repo">GitHub <span class="btn-arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container" style="text-align:center; margin-bottom:2.5rem;">
+    <span class="eyebrow">Contacto</span>
+    <h2 class="section-title">¿Hablamos?</h2>
+    <p class="section-sub" style="margin:0 auto;">Cuéntame tu proyecto y te respondo en menos de 24 horas.</p>
+  </div>
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-form-col">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Nombre</label><input class="form-input" type="text" placeholder="Tu nombre"></div>
+          <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="tu@email.com"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Asunto</label><input class="form-input" type="text" placeholder="¿En qué puedo ayudarte?"></div>
+        <div class="form-group"><label class="form-label">Mensaje</label><textarea class="form-textarea" placeholder="Cuéntame tu proyecto, idea o duda..."></textarea></div>
+        <button class="btn-primary" style="width:100%; justify-content:center; padding:13px;">Enviar mensaje <span class="btn-arrow">↗</span></button>
+      </div>
+      <div class="contact-info-col">
+        <a href="mailto:yeraynavarroyanini@gmail.com" class="contact-card">
+          <div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="contact-card-label">Email</div><div class="contact-card-val">yeraynavarroyanini@gmail.com</div></div>
+        </a>
+        <a href="tel:+34637659355" class="contact-card">
+          <div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><div class="contact-card-label">Teléfono</div><div class="contact-card-val">+34 637 659 355</div></div>
+        </a>
+        <a href="https://wa.me/34637659355" class="contact-wa" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          <span>Escríbeme por WhatsApp</span>
+        </a>
+        <div class="contact-socials">
+          <a href="https://github.com/YerayN" class="social-link" title="GitHub" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg></a>
+          <a href="https://www.linkedin.com/in/yeray-navarro/" class="social-link" title="LinkedIn" target="_blank"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://www.instagram.com/yeraynavarroy_/" class="social-link" title="Instagram" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">YN · Yeray Navarro</span>
+  <span class="footer-copy">© 2026 · Todos los derechos reservados.</span>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
