@@ -22,10 +22,11 @@
        6d. Botones de tarjeta
        6e. Franja inferior de garantías
    7.  Sobre mí
-   8.  Proyectos
-   9.  Contacto
-   10. Footer
-   11. Responsive (móvil ≤ 740px)
+   8.  Método
+   9.  Proyectos
+   10.  Contacto
+   11. Footer
+   12. Responsive (móvil ≤ 740px)
    ============================================================ */
 
 
@@ -44,7 +45,7 @@
   --green-50:  #e8fdf4;   /* fondo muy suave */
   --green-100: #b6f0d8;   /* bordes suaves, placeholders */
   --green-400: #34d399;   /* checks, acentos medianos */
-  --green-600: #059669;   /* textos accent, hover */
+  --green-600: #10b981;   /* textos accent, hover */
   --green-700: #047857;   /* hover oscuro */
   --green-800: #065f46;   /* hover de botones oscuros */
 
@@ -71,7 +72,7 @@
   /* Border radius */
   --radius-sm: 6px;
   --radius-md: 10px;
-  --radius-lg: 14px;
+  --radius-lg: 20px;
   --radius-xl: 20px;
 }
 
@@ -565,7 +566,8 @@ section {
   bottom: 2px;
   left: 0;
   right: 0;
-  height: 4px;
+  height: 8px;
+  opacity: 0.6;
   background: var(--lime);
   border-radius: 2px;
   z-index: -1;
@@ -1044,9 +1046,70 @@ section {
   margin-bottom: 1rem;
 }
 
+/* ============================================================
+   8b. SECCIÓN MÉTODO (ESPECÍFICO)
+   ============================================================ */
+
+#metodo {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+}
+
+/* Adaptamos las srv-card para que funcionen en fondo claro */
+#metodo .srv-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+/* Estilo para los números (01, 02, 03) */
+#metodo .srv-price-amount {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 42px; /* Un tamaño que imponga autoridad */
+  color: var(--green-100); /* Color suave de fondo */
+  margin-bottom: 1rem;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+#metodo .srv-card:hover {
+  border-color: var(--green-400);
+  background: var(--bg-secondary);
+}
+
+#metodo .srv-price-amount {
+  font-size: 28px;
+  color: var(--green-600);
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+/* Ajuste de títulos y textos en el método */
+#metodo .srv-plan-name {
+  color: var(--text-primary);
+  font-size: 18px;
+  margin-bottom: 0.75rem;
+}
+
+#metodo .srv-plan-desc {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Decoración técnica: una línea sutil que une los pasos (opcional visual) */
+@media (min-width: 741px) {
+  #metodo .srv-grid {
+    position: relative;
+  }
+}
+
 
 /* ============================================================
-   8. PROYECTOS
+   9. PROYECTOS
    ============================================================ */
 
 #proyectos {
@@ -1215,7 +1278,7 @@ section {
 
 
 /* ============================================================
-   9. CONTACTO
+   10. CONTACTO
    ============================================================ */
 
 #contacto {
@@ -1367,7 +1430,7 @@ section {
 
 
 /* ============================================================
-   10. FOOTER
+   11. FOOTER
    ============================================================ */
 
 footer {
@@ -1394,7 +1457,7 @@ footer {
 
 
 /* ============================================================
-   11. RESPONSIVE (móvil ≤ 740px)
+   12. RESPONSIVE (móvil ≤ 740px)
    ============================================================ */
 
 @media (max-width: 740px) {
