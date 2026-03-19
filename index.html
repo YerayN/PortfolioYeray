@@ -422,13 +422,29 @@
   <div class="container">
     <div class="contact-inner">
       <div class="contact-form-col">
-        <div class="form-row">
-          <div class="form-group"><label class="form-label">Nombre</label><input class="form-input" type="text" placeholder="Tu nombre"></div>
-          <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="tu@email.com"></div>
-        </div>
-        <div class="form-group"><label class="form-label">Asunto</label><input class="form-input" type="text" placeholder="¿En qué puedo ayudarte?"></div>
-        <div class="form-group"><label class="form-label">Mensaje</label><textarea class="form-textarea" placeholder="Cuéntame tu proyecto, idea o duda..."></textarea></div>
-        <button class="btn-primary" style="width:100%; justify-content:center; padding:13px;">Enviar mensaje <span class="btn-arrow">↗</span></button>
+        <form id="telegramForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Nombre</label>
+              <input class="form-input" type="text" id="name" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input class="form-input" type="email" id="email" placeholder="tu@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Asunto</label>
+            <input class="form-input" type="text" id="subject" placeholder="¿En qué puedo ayudarte?" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mensaje</label>
+            <textarea class="form-textarea" id="message" placeholder="Cuéntame tu proyecto, idea o duda..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%; justify-content:center; padding:13px;">
+            Enviar mensaje <span class="btn-arrow">↗</span>
+          </button>
+        </form>
       </div>
       <div class="contact-info-col">
         <a href="mailto:yeraynavarroyanini@gmail.com" class="contact-card">
