@@ -7,22 +7,22 @@
 const PROJECTS = [
   {
     id: 1,
-    title: 'HealthTracker API',
+    title: 'LaDespensa App',
     description:
-      'API REST para gestión de registros de pacientes. Autenticación JWT, endpoints CRUD y documentación automática con Swagger. Proyecto inspirado en mi experiencia sanitaria.',
+      'Aplicación Android, que permite almacenar recetas de cocina, planificarlas en un menú semanal, y posteriormente, genera automáticamente una lista de la compra.',
     image: '/assets/images/proyecto-1.png',
-    tags: ['Python', 'FastAPI', 'PostgreSQL', 'Docker'],
-    github: 'https://github.com/yeray-navarro',
+    tags: ['Kotlin', 'Android Studio', 'SQLite', 'Google Play Console'],
+    github: 'https://github.com/YerayN/',
     demo: '#',
   },
   {
     id: 2,
-    title: 'Dashboard de Turnos',
+    title: 'Aplicación Web Protección Civil',
     description:
-      'Aplicación web para visualización y gestión de turnos sanitarios. Interfaz intuitiva construida con React y consumo de API externa con gráficas en tiempo real.',
+      'Aplicación web que permite mostrar información relevante a una población, y gestionar de forma interna, a los voluntarios que componen la unidad (fichaje, control de inventario, calendario de servicios, etc).',
     image: '/assets/images/proyecto-2.png',
     tags: ['React', 'Tailwind CSS', 'Chart.js', 'REST API'],
-    github: 'https://github.com/yeray-navarro',
+    github: 'https://github.com/YerayN/',
     demo: '#',
   },
   {
@@ -32,7 +32,7 @@ const PROJECTS = [
       'Herramienta web 100% cliente para crear y exportar presupuestos profesionales en PDF. Sin backend, sin instalación — abre el archivo y listo. Reduce tiempo de proceso en un 90%.',
     image: '/assets/images/proyecto-3.png',
     tags: ['JavaScript', 'jsPDF', 'Tailwind', 'SPA'],
-    github: 'https://github.com/yeray-navarro',
+    github: 'https://github.com/YerayN/',
     demo: '#',
   },
   {
@@ -42,7 +42,7 @@ const PROJECTS = [
       'Este mismo portfolio. Diseñado desde cero con React + Vite y Tailwind CSS. Foco en rendimiento, accesibilidad y experiencia de usuario limpia.',
     image: '/assets/images/proyecto-4.png',
     tags: ['React', 'Vite', 'Tailwind CSS', 'Responsive'],
-    github: 'https://github.com/yeray-navarro',
+    github: 'https://github.com/YerayN/',
     demo: '#',
   },
 ]
