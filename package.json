@@ -2,7 +2,7 @@
   "name": "portfolioyeray",
   "private": true,
   "version": "0.0.0",
-  "homepage": "http://yeraynavarro.com", 
+  "homepage": "http://yeraynavarro.com",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -16,6 +16,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2",
     "vite": "^6.2.0"
   }
 }
