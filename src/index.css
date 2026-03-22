@@ -1,0 +1,49 @@
+/* ============================================================
+   index.css — Estilos globales: importación de fuentes Google,
+   scroll reveal CSS y reset mínimo.
+   ============================================================ */
+
+/* 1. Google Fonts — Inter (700) + Roboto (400) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Roboto:wght@300;400;500&display=swap');
+
+/* 2. Directivas Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 3. Reset base y variables globales */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-slate bg-bg-primary;
+  }
+
+  /* Scrollbar personalizado (sutil, tono acento) */
+  ::-webkit-scrollbar        { width: 6px; }
+  ::-webkit-scrollbar-track  { background: #F4F7F6; }
+  ::-webkit-scrollbar-thumb  { background: #3182CE; border-radius: 3px; }
+}
+
+/* 4. Scroll Reveal — estado inicial (oculto + desplazado hacia abajo) */
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  /* Clase añadida por JS cuando el elemento entra en el viewport */
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Variante con delay para elementos en grid */
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+}
