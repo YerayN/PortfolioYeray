@@ -7,11 +7,11 @@
 const PROJECTS = [
   {
     id: 1,
-    title: 'LaDespensa App',
+    title: 'LetDev',
     description:
-      'Aplicación Android, que permite almacenar recetas de cocina, planificarlas en un menú semanal, y posteriormente, genera automáticamente una lista de la compra.',
-    image: '/assets/images/proyecto-1.png',
-    tags: ['Kotlin', 'Android Studio', 'SQLite', 'Google Play Console'],
+      'Landing page corporativa con CRM integrado para gestionar clientes, emitir presupuestos profesionales y controlar la facturación de servicios IT.',
+    image: '/assets/images/letdev-proyecto.png',
+    tags: ['React', 'Tailwind CSS', 'Supabase'],
     github: 'https://github.com/YerayN/',
     demo: '#',
   },
@@ -20,7 +20,7 @@ const PROJECTS = [
     title: 'Aplicación Web Protección Civil',
     description:
       'Aplicación web que permite mostrar información relevante a una población, y gestionar de forma interna, a los voluntarios que componen la unidad (fichaje, control de inventario, calendario de servicios, etc).',
-    image: '/assets/images/proyecto-2.png',
+    image: '/assets/images/pcaigues-proyecto.png',
     tags: ['React', 'Tailwind CSS', 'Chart.js', 'REST API'],
     github: 'https://github.com/YerayN/',
     demo: '#',
@@ -40,7 +40,7 @@ const PROJECTS = [
     title: 'Portfolio Web Personal',
     description:
       'Este mismo portfolio. Diseñado desde cero con React + Vite y Tailwind CSS. Foco en rendimiento, accesibilidad y experiencia de usuario limpia.',
-    image: '/assets/images/proyecto-4.png',
+    image: '/assets/images/yeray-proyecto.png',
     tags: ['React', 'Vite', 'Tailwind CSS', 'Responsive'],
     github: 'https://github.com/YerayN/',
     demo: '#',

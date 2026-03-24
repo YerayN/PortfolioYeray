@@ -62,7 +62,7 @@ export default function Footer() {
 
         {/* Nombre / Logo */}
         <span className="font-heading font-bold text-xl text-white tracking-tight">
-          Yeray<span className="text-accent">.</span>
+          Yeray Navarro<span className="text-accent">.</span>
         </span>
 
         {/* Tagline */}
