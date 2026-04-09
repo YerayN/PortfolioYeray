@@ -55,7 +55,7 @@ export default function About() {
         {/* Botón de contacto */}
         <div className="mt-10 reveal reveal-delay-2">
           <a
-            href="mailto:yeray@email.com"
+            href="mailto:yeraynavarroyanini@gmail.com"
             className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark
               text-white font-body font-medium px-7 py-3 rounded-md
               transition-all duration-300 ease-in-out shadow-sm
