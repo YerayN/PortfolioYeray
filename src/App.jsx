@@ -9,7 +9,7 @@ import {
 const Github = GitBranch;
 const Linkedin = Link;
 
-// ─── RESET GLOBAL ─────────────────────────────────────────────────────────────
+// ─── RESET GLOBAL Y ANIMACIONES ───────────────────────────────────────────────
 const globalStyle = `
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -21,6 +21,41 @@ const globalStyle = `
     font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+  }
+
+  /* --- ANIMACIONES DE TECLEO EXACTAS --- */
+  /* Cada línea crece solo hasta sus caracteres exactos (ch) */
+  @keyframes typeLine1 { 0% { width: 0; opacity: 1; border-right-color: #22d3ee; } 6% { width: 52ch; opacity: 1; border-right-color: #22d3ee; } 7%, 95% { width: 52ch; opacity: 1; border-right-color: transparent; } 100% { width: 0; opacity: 0; border-right-color: transparent; } }
+  @keyframes typeLine2 { 0% { width: 0; opacity: 1; border-right-color: #22d3ee; } 6% { width: 54ch; opacity: 1; border-right-color: #22d3ee; } 7%, 95% { width: 54ch; opacity: 1; border-right-color: transparent; } 100% { width: 0; opacity: 0; border-right-color: transparent; } }
+  @keyframes typeLine3 { 0% { width: 0; opacity: 1; border-right-color: #22d3ee; } 6% { width: 51ch; opacity: 1; border-right-color: #22d3ee; } 7%, 95% { width: 51ch; opacity: 1; border-right-color: transparent; } 100% { width: 0; opacity: 0; border-right-color: transparent; } }
+  @keyframes typeLine4 { 0% { width: 0; opacity: 1; border-right-color: #22d3ee; } 6% { width: 47ch; opacity: 1; border-right-color: #22d3ee; } 7%, 95% { width: 47ch; opacity: 1; border-right-color: transparent; } 100% { width: 0; opacity: 0; border-right-color: transparent; } }
+  @keyframes typeLine5 { 0% { width: 0; opacity: 1; border-right-color: #22d3ee; } 6% { width: 24ch; opacity: 1; border-right-color: #22d3ee; } 7%, 95% { width: 24ch; opacity: 1; border-right-color: transparent; } 100% { width: 0; opacity: 0; border-right-color: transparent; } }
+  @keyframes typeLine6 { 0% { width: 0; opacity: 1; border-right-color: #22d3ee; } 6% { width: 51ch; opacity: 1; border-right-color: #22d3ee; } 7%, 95% { width: 51ch; opacity: 1; border-right-color: transparent; } 100% { width: 0; opacity: 0; border-right-color: transparent; } }
+
+  .code-line {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid transparent; /* El cursor de escritura */
+    opacity: 0;
+  }
+
+  /* Secuencia en cascada para que se escriban una detrás de otra */
+  .line-1 { animation: typeLine1 15s steps(52, end) infinite 0s; }
+  .line-2 { animation: typeLine2 15s steps(54, end) infinite 2s; }
+  .line-3 { animation: typeLine3 15s steps(51, end) infinite 4s; }
+  .line-4 { animation: typeLine4 15s steps(47, end) infinite 6s; }
+  .line-5 { animation: typeLine5 15s steps(24, end) infinite 8s; }
+  .line-6 { animation: typeLine6 15s steps(51, end) infinite 10s; }
+
+  /* --- APARICIÓN SUAVE (REVEAL) --- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
   }
 `;
 
@@ -122,6 +157,29 @@ const VALUE_AREAS = [
 
 const HERO_CHIPS = ["Desarrollo web", "Automatización", "IA aplicada", "Datos", "Entornos críticos"];
 
+// ─── BACKGROUND CODE ────────────────────────
+
+function BackgroundCode() {
+  return (
+    <div style={{
+      position: "fixed", top: "15%", left: "4%", width: "92%", maxWidth: 1000,
+      fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      fontSize: 15, opacity: 0.35, zIndex: 0, pointerEvents: "none", overflow: "hidden"
+    }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+        <p className="code-line line-1"><span style={{ color: "#c678dd" }}>import</span> <span style={{ color: "#e5c07b" }}>{'{ calma, criterio }'}</span> <span style={{ color: "#c678dd" }}>from</span> <span style={{ color: "#98c379" }}>'@past/emergencias'</span>;</p>
+        <p className="code-line line-2"><span style={{ color: "#c678dd" }}>import</span> <span style={{ color: "#e5c07b" }}>{'{ automation, data }'}</span> <span style={{ color: "#c678dd" }}>from</span> <span style={{ color: "#98c379" }}>'@skills/tech-stack'</span>;</p>
+        <br/>
+        <p className="code-line line-3"><span style={{ color: "#56b6c2" }}>const</span> <span style={{ color: "#e06c75" }}>yeray</span> = <span style={{ color: "#56b6c2" }}>new</span> <span style={{ color: "#61afef" }}>Developer</span>({'{'} mode: <span style={{ color: "#98c379" }}>'Operative'</span> {'}'});</p>
+        <p className="code-line line-4"><span style={{ color: "#e06c75" }}>yeray</span>.<span style={{ color: "#61afef" }}>execute</span>({'{'} target: <span style={{ color: "#98c379" }}>'Soluciones Reales'</span> {'}'});</p>
+        <br/>
+        <p className="code-line line-5"><span style={{ color: "#c678dd" }}>await</span> <span style={{ color: "#e06c75" }}>yeray</span>.<span style={{ color: "#61afef" }}>connectAI</span>();</p>
+        <p className="code-line line-6" style={{ color: "rgba(255,255,255,0.4)" }}>// Sistema optimizado. Preparado para nuevos retos.</p>
+      </div>
+    </div>
+  );
+}
+
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 
 function goTo(href) {
@@ -174,7 +232,6 @@ function Navbar() {
     }}>
       <div style={{ maxWidth: 1152, margin: "0 auto", padding: "0 24px", height: 64, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 
-        {/* Logo */}
         <a href="#inicio" onClick={e => { e.preventDefault(); goTo("#inicio"); }}
           style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <span style={{
@@ -187,7 +244,6 @@ function Navbar() {
           <span style={{ fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.88)" }}>Yeray Navarro</span>
         </a>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex" style={{ gap: 4 }}>
           {NAV_LINKS.map(l => (
             <a key={l.href} href={l.href}
@@ -199,7 +255,6 @@ function Navbar() {
           ))}
         </nav>
 
-        {/* Desktop CTAs */}
         <div className="hidden md:flex" style={{ gap: 8 }}>
           <a href="/cv-yeray.pdf" download
             style={{ display: "flex", alignItems: "center", gap: 6, padding: "6px 16px", fontSize: 13, color: "#22d3ee", border: "1px solid rgba(6,182,212,0.3)", borderRadius: 8, textDecoration: "none", transition: "background 0.2s" }}
@@ -215,7 +270,6 @@ function Navbar() {
           >Contactar</a>
         </div>
 
-        {/* Mobile toggle */}
         <button className="md:hidden" onClick={() => setOpen(!open)}
           style={{ background: "none", border: "none", color: "rgba(255,255,255,0.6)", cursor: "pointer", padding: 4 }}
           aria-label="Menú">
@@ -223,7 +277,6 @@ function Navbar() {
         </button>
       </div>
 
-      {/* Mobile drawer */}
       {open && (
         <div style={{ background: "rgba(8,12,16,0.98)", borderTop: "1px solid rgba(255,255,255,0.05)", padding: "16px 24px 20px" }}>
           {NAV_LINKS.map(l => (
@@ -253,22 +306,10 @@ function Navbar() {
 function Hero() {
   return (
     <section id="inicio" style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: 64, overflow: "hidden" }}>
-
-      {/* Grid bg */}
-      <div style={{
-        position: "absolute", inset: 0, pointerEvents: "none",
-        backgroundImage: "linear-gradient(rgba(6,182,212,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(6,182,212,0.04) 1px,transparent 1px)",
-        backgroundSize: "64px 64px",
-      }} />
-      <div style={{ position: "absolute", top: "18%", left: "12%", width: 500, height: 500, background: "radial-gradient(circle,rgba(6,182,212,0.055) 0%,transparent 70%)", pointerEvents: "none" }} />
-      <div style={{ position: "absolute", bottom: "18%", right: "8%", width: 400, height: 400, background: "radial-gradient(circle,rgba(59,130,246,0.045) 0%,transparent 70%)", pointerEvents: "none" }} />
-
-      <div style={{ width: "100%", maxWidth: 1152, margin: "0 auto", padding: "80px 24px" }}>
+      <div style={{ position: "relative", width: "100%", maxWidth: 1152, margin: "0 auto", padding: "80px 24px", zIndex: 2 }}>
         <div className="grid lg:grid-cols-2" style={{ gap: 64, alignItems: "center" }}>
 
-          {/* Left */}
           <div>
-            {/* Badge */}
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 14px", borderRadius: 999, border: "1px solid rgba(6,182,212,0.25)", background: "rgba(6,182,212,0.06)", marginBottom: 28 }}>
               <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22d3ee", animation: "pulse 2s infinite" }} />
               <span style={{ fontSize: 11, color: "#22d3ee", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase" }}>Disponible para nuevos proyectos</span>
@@ -283,20 +324,15 @@ function Hero() {
             </h1>
 
             <p style={{ fontSize: 16, color: "rgba(255,255,255,0.48)", lineHeight: 1.7, marginBottom: 28, maxWidth: 480 }}>
-              Vengo del mundo de las emergencias sanitarias y el gran comercio, 
-              donde aprendí a mantener la calma y tomar decisiones bajo presión. 
-              Hoy aplico ese mismo criterio operativo al desarrollo de software y a la automatización con IA, 
-              creando herramientas que realmente facilitan el día a día a las personas.
+              Vengo del mundo de las emergencias sanitarias, donde aprendí a mantener la calma y tomar decisiones bajo presión. Hoy aplico ese mismo criterio operativo al desarrollo de software y a la automatización, creando herramientas que realmente facilitan el día a día a las personas.
             </p>
 
-            {/* Chips */}
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 36 }}>
               {HERO_CHIPS.map(c => (
                 <span key={c} style={{ padding: "4px 10px", fontSize: 12, fontWeight: 500, color: "rgba(255,255,255,0.42)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, background: "rgba(255,255,255,0.02)" }}>{c}</span>
               ))}
             </div>
 
-            {/* CTAs */}
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
               <a href="#proyectos" onClick={e => { e.preventDefault(); goTo("#proyectos"); }}
                 style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 20px", fontSize: 14, fontWeight: 600, background: "#06b6d4", color: "#080c10", borderRadius: 8, textDecoration: "none", boxShadow: "0 4px 20px rgba(6,182,212,0.28)", transition: "background 0.2s" }}
@@ -316,10 +352,8 @@ function Hero() {
             </div>
           </div>
 
-          {/* Right: dashboard */}
           <div style={{ position: "relative", marginTop: "40px" }}>
-            <div style={{ borderRadius: 20, border: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.02)", backdropFilter: "blur(8px)", padding: 24 }}>
-              {/* Window bar */}
+            <div style={{ borderRadius: 20, border: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.02)", backdropFilter: "blur(12px)", padding: 24 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 20, paddingBottom: 16, borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
                 <span style={{ width: 10, height: 10, borderRadius: "50%", background: "rgba(239,68,68,0.7)" }} />
                 <span style={{ width: 10, height: 10, borderRadius: "50%", background: "rgba(245,158,11,0.7)" }} />
@@ -327,28 +361,17 @@ function Hero() {
                 <span style={{ marginLeft: "auto", fontSize: 11, color: "rgba(255,255,255,0.2)", fontFamily: "monospace" }}>yeray.portfolio</span>
               </div>
 
-              {/* Imagen de perfil insertada en el dashboard (Efecto Out of Bounds) */}
-            <div style={{ position: "relative", width: "100%", height: 300, display: "flex", justifyContent: "center", alignItems: "flex-end", marginBottom: 24 }}>
-              
-              {/* Círculo de luz suave para "apoyar" la figura y darle volumen */}
-              <div style={{ position: "absolute", bottom: 0, width: 260, height: 260, borderRadius: "50%", background: "radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%)" }} />
-              
-              <img
-                src="/yeray-profile.png"
-                alt="Yeray Navarro"
-                style={{ 
-                  position: "relative", 
-                  width: "100%", 
-                  height: "100%", 
-                  objectFit: "contain", 
-                  objectPosition: "bottom", 
-                  display: "block", 
-                  filter: "drop-shadow(0 15px 25px rgba(0,0,0,0.6))",
-                  transform: "scale(1.25)", /* Aquí es donde la hacemos más grande */
-                  transformOrigin: "bottom center" /* Hacemos que crezca desde la base hacia arriba */
-                }}
-              />
-            </div>
+              <div style={{ position: "relative", width: "100%", height: 300, display: "flex", justifyContent: "center", alignItems: "flex-end", marginBottom: 24 }}>
+                <div style={{ position: "absolute", bottom: 0, width: 260, height: 260, borderRadius: "50%", background: "radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%)" }} />
+                <img
+                  src="/yeray-profile.png"
+                  alt="Yeray Navarro"
+                  style={{ 
+                    position: "relative", width: "100%", height: "100%", objectFit: "contain", objectPosition: "bottom", display: "block", 
+                    filter: "drop-shadow(0 15px 25px rgba(0,0,0,0.6))", transform: "scale(1.25)", transformOrigin: "bottom center" 
+                  }}
+                />
+              </div>
 
               <p style={{ fontSize: 11, color: "rgba(255,255,255,0.22)", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>Áreas de valor</p>
 
@@ -374,16 +397,14 @@ function Hero() {
                 <span style={{ fontSize: 12, color: "rgba(255,255,255,0.18)" }}>Alicante, España</span>
               </div>
             </div>
-
-            {/* Badge flotante */}
+            
             <div style={{ position: "absolute", bottom: -16, left: -16, background: "#0e1520", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "12px 16px", boxShadow: "0 8px 32px rgba(0,0,0,0.4)" }}>
-              <p style={{ fontSize: 11, color: "rgba(255,255,255,0.25)", marginBottom: 2 }}>Proyectos activos</p>
-              <p style={{ fontSize: 22, fontWeight: 700, color: "white" }}>3+</p>
+              <p style={{ fontSize: 11, color: "rgba(255,255,255,0.25)", marginBottom: 2 }}>Perfil híbrido</p>
+              <p style={{ fontSize: 22, fontWeight: 700, color: "white" }}>Sanidad + IT</p>
             </div>
           </div>
         </div>
       </div>
-
     </section>
   );
 }
@@ -396,7 +417,6 @@ function Differentials() {
       <Divider />
       <div style={{ maxWidth: 1152, margin: "0 auto", padding: "0 24px" }}>
         
-        {/* Cabecera centrada */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: 48 }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
             <span style={{ width: 28, height: 1, background: "rgba(6,182,212,0.5)", display: "block" }} />
@@ -414,9 +434,7 @@ function Differentials() {
           </p>
         </div>
 
-        {/* Cuadrícula de tarjetas */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4" style={{ gap: 16 }}>
-
           {DIFFERENTIALS.map(d => (
             <div key={d.title}
               style={{ padding: 20, borderRadius: 14, border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)", transition: "all 0.25s" }}
@@ -436,7 +454,6 @@ function Differentials() {
   );
 }
 
-
 // ─── PROJECTS ─────────────────────────────────────────────────────────────────
 
 function Projects() {
@@ -447,7 +464,6 @@ function Projects() {
       <Divider />
       <div style={{ maxWidth: 1152, margin: "0 auto", padding: "0 24px" }}>
         
-        {/* Cabecera centrada */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: 48 }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
             <span style={{ width: 28, height: 1, background: "rgba(6,182,212,0.5)", display: "block" }} />
@@ -463,8 +479,6 @@ function Projects() {
             Casos prácticos donde aplico desarrollo web, automatización e inteligencia artificial para resolver cuellos de botella y mejorar operativas reales.
           </p>
         </div>
-
-        {/* Contenedor de las tarjetas (deja lo que ya tienes a partir de aquí) */}
 
         <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
           {PROJECTS.map((p, i) => (
@@ -551,7 +565,6 @@ function Stack() {
       <Divider />
       <div style={{ maxWidth: 1152, margin: "0 auto", padding: "0 24px" }}>
         
-        {/* Cabecera centrada */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: 48 }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
             <span style={{ width: 28, height: 1, background: "rgba(6,182,212,0.5)", display: "block" }} />
@@ -615,7 +628,6 @@ function ValueAreas() {
       <Divider />
       <div style={{ maxWidth: 1152, margin: "0 auto", padding: "0 24px" }}>
         
-        {/* Cabecera centrada */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: 48 }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
             <span style={{ width: 28, height: 1, background: "rgba(6,182,212,0.5)", display: "block" }} />
@@ -666,7 +678,6 @@ function About() {
       <div style={{ maxWidth: 1152, margin: "0 auto", padding: "0 24px" }}>
         <div className="grid lg:grid-cols-2" style={{ gap: 64, alignItems: "center" }}>
           
-          {/* Lado izquierdo: Textos */}
           <div>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
               <span style={{ width: 28, height: 1, background: "rgba(6,182,212,0.5)", display: "block" }} />
@@ -694,13 +705,12 @@ function About() {
             </div>
           </div>
 
-          {/* Lado derecho: Foto e info simplificada */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <div style={{ 
               position: "relative",
               width: "100%", 
               maxWidth: 400,
-              aspectRatio: "1/1", /* Proporción cuadrada para que no quede tan alta */
+              aspectRatio: "1/1", 
               borderRadius: 24, 
               overflow: "hidden", 
               border: "1px solid rgba(255,255,255,0.07)",
@@ -838,21 +848,54 @@ function Footer() {
 // ─── APP ──────────────────────────────────────────────────────────────────────
 
 export default function App() {
+  
+  useEffect(() => {
+    // Restauramos la vigilancia del Scroll, pero le damos tiempo a React a que pinte las cosas en la pantalla
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 }); 
+
+    const timeoutId = setTimeout(() => {
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }, 100); // 100ms de margen para evitar el bug de que se queden invisibles
+
+    return () => {
+      clearTimeout(timeoutId);
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <>
       <style>{globalStyle}</style>
-      <div style={{ width: "100%", minHeight: "100vh", background: "#080c10" }}>
+      <div style={{ position: "relative", width: "100%", minHeight: "100vh", background: "#080c10" }}>
+        
+        {/* FONDO FIJO 1: La cuadrícula (se queda pegada al hacer scroll) */}
+        <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0, backgroundImage: "linear-gradient(rgba(6,182,212,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(6,182,212,0.04) 1px,transparent 1px)", backgroundSize: "64px 64px" }} />
+        
+        {/* FONDO FIJO 2: El texto animado puro (se queda pegado al hacer scroll) */}
+        <BackgroundCode />
+
         <Navbar />
-        <main>
-          <Hero />
-          <Differentials />
-          <Projects />
-          <Stack />
-          <ValueAreas />
-          <About />
-          <Contact />
+        
+        {/* CONTENIDO PRINCIPAL: Fluye por encima de los fondos fijos */}
+        <main style={{ position: "relative", zIndex: 10 }}>
+          <Hero /> 
+          <div className="reveal"><Differentials /></div>
+          <div className="reveal"><Projects /></div>
+          <div className="reveal"><Stack /></div>
+          <div className="reveal"><ValueAreas /></div>
+          <div className="reveal"><About /></div>
+          <div className="reveal"><Contact /></div>
         </main>
-        <Footer />
+        
+        <div style={{ position: "relative", zIndex: 10 }}>
+          <Footer />
+        </div>
       </div>
     </>
   );
