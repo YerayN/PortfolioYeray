@@ -158,13 +158,14 @@ const VALUE_AREAS = [
 const HERO_CHIPS = ["Desarrollo web", "Automatización", "IA aplicada", "Datos", "Entornos críticos"];
 
 // ─── BACKGROUND CODE ────────────────────────
-
 function BackgroundCode() {
   return (
     <div style={{
       position: "fixed", top: "15%", left: "4%", width: "92%", maxWidth: 1000,
       fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
-      fontSize: 15, opacity: 0.35, zIndex: 0, pointerEvents: "none", overflow: "hidden"
+      /* 1. Bajamos la opacidad y difuminamos los bordes superior e inferior */
+      fontSize: 15, opacity: 0.18, zIndex: 0, pointerEvents: "none",
+      WebkitMaskImage: "linear-gradient(to bottom, transparent, black 5%, black 95%, transparent)"
     }}>
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <p className="code-line line-1"><span style={{ color: "#c678dd" }}>import</span> <span style={{ color: "#e5c07b" }}>{'{ calma, criterio }'}</span> <span style={{ color: "#c678dd" }}>from</span> <span style={{ color: "#98c379" }}>'@past/emergencias'</span>;</p>
@@ -302,56 +303,42 @@ function Navbar() {
 }
 
 // ─── HERO ─────────────────────────────────────────────────────────────────────
-
 function Hero() {
   return (
     <section id="inicio" style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: 64, overflow: "hidden" }}>
+      
+      {/* 2. Sombra oscura desenfocada detrás del texto principal para que el código de fondo se "borre" en esa zona */}
+      <div style={{ position: "absolute", top: "20%", left: "-10%", width: "65%", height: "60%", background: "radial-gradient(ellipse at center, rgba(8,12,16,0.95) 15%, rgba(8,12,16,0.7) 45%, transparent 80%)", pointerEvents: "none", zIndex: 1 }} />
+
       <div style={{ position: "relative", width: "100%", maxWidth: 1152, margin: "0 auto", padding: "80px 24px", zIndex: 2 }}>
         <div className="grid lg:grid-cols-2" style={{ gap: 64, alignItems: "center" }}>
-
           <div>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 14px", borderRadius: 999, border: "1px solid rgba(6,182,212,0.25)", background: "rgba(6,182,212,0.06)", marginBottom: 28 }}>
+            
+            {/* 3. Etiqueta con efecto blur (cristal esmerilado) */}
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 14px", borderRadius: 999, border: "1px solid rgba(6,182,212,0.25)", background: "rgba(6,182,212,0.08)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", marginBottom: 28 }}>
               <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22d3ee", animation: "pulse 2s infinite" }} />
               <span style={{ fontSize: 11, color: "#22d3ee", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase" }}>Disponible para nuevos proyectos</span>
             </div>
-
+            
             <h1 style={{ fontSize: "clamp(2.5rem,5vw,3.5rem)", fontWeight: 800, lineHeight: 1.08, letterSpacing: "-0.02em", color: "white", marginBottom: 20 }}>
-              Creo soluciones{" "}
-              <span style={{ background: "linear-gradient(90deg,#22d3ee,#60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                digitales
-              </span>{" "}
-              para problemas reales.
+              Creo soluciones{" "} <span style={{ background: "linear-gradient(90deg,#22d3ee,#60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}> digitales </span>{" "} para problemas reales.
             </h1>
-
+            
             <p style={{ fontSize: 16, color: "rgba(255,255,255,0.48)", lineHeight: 1.7, marginBottom: 28, maxWidth: 480 }}>
               Vengo del mundo de las emergencias sanitarias, donde aprendí a mantener la calma y tomar decisiones bajo presión. Hoy aplico ese mismo criterio operativo al desarrollo de software y a la automatización, creando herramientas que realmente facilitan el día a día a las personas.
             </p>
-
+            
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 36 }}>
-              {HERO_CHIPS.map(c => (
-                <span key={c} style={{ padding: "4px 10px", fontSize: 12, fontWeight: 500, color: "rgba(255,255,255,0.42)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, background: "rgba(255,255,255,0.02)" }}>{c}</span>
-              ))}
+              {HERO_CHIPS.map(c => ( <span key={c} style={{ padding: "4px 10px", fontSize: 12, fontWeight: 500, color: "rgba(255,255,255,0.42)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, background: "rgba(255,255,255,0.02)", backdropFilter: "blur(4px)" }}>{c}</span> ))}
             </div>
-
+            
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-              <a href="#proyectos" onClick={e => { e.preventDefault(); goTo("#proyectos"); }}
-                style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 20px", fontSize: 14, fontWeight: 600, background: "#06b6d4", color: "#080c10", borderRadius: 8, textDecoration: "none", boxShadow: "0 4px 20px rgba(6,182,212,0.28)", transition: "background 0.2s" }}
-                onMouseEnter={e => e.currentTarget.style.background = "#22d3ee"}
-                onMouseLeave={e => e.currentTarget.style.background = "#06b6d4"}
-              >Ver proyectos <ArrowRight size={15} /></a>
-              <a href="#contacto" onClick={e => { e.preventDefault(); goTo("#contacto"); }}
-                style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 20px", fontSize: 14, color: "rgba(255,255,255,0.6)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, textDecoration: "none", transition: "all 0.2s" }}
-                onMouseEnter={e => { e.currentTarget.style.color = "white"; e.currentTarget.style.background = "rgba(255,255,255,0.05)"; }}
-                onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.6)"; e.currentTarget.style.background = "transparent"; }}
-              >Contactar</a>
-              <a href="/cv-yeray.pdf" download
-                style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 20px", fontSize: 14, color: "#22d3ee", border: "1px solid rgba(6,182,212,0.3)", borderRadius: 8, textDecoration: "none", transition: "background 0.2s" }}
-                onMouseEnter={e => e.currentTarget.style.background = "rgba(6,182,212,0.08)"}
-                onMouseLeave={e => e.currentTarget.style.background = "transparent"}
-              ><Download size={14} /> CV</a>
+              <a href="#proyectos" onClick={e => { e.preventDefault(); goTo("#proyectos"); }} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 20px", fontSize: 14, fontWeight: 600, background: "#06b6d4", color: "#080c10", borderRadius: 8, textDecoration: "none", boxShadow: "0 4px 20px rgba(6,182,212,0.28)", transition: "background 0.2s" }} onMouseEnter={e => e.currentTarget.style.background = "#22d3ee"} onMouseLeave={e => e.currentTarget.style.background = "#06b6d4"} >Ver proyectos <ArrowRight size={15} /></a>
+              <a href="#contacto" onClick={e => { e.preventDefault(); goTo("#contacto"); }} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 20px", fontSize: 14, color: "rgba(255,255,255,0.6)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, textDecoration: "none", transition: "all 0.2s", backdropFilter: "blur(4px)" }} onMouseEnter={e => { e.currentTarget.style.color = "white"; e.currentTarget.style.background = "rgba(255,255,255,0.05)"; }} onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.6)"; e.currentTarget.style.background = "transparent"; }} >Contactar</a>
+              <a href="/cv-yeray.pdf" download style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 20px", fontSize: 14, color: "#22d3ee", border: "1px solid rgba(6,182,212,0.3)", borderRadius: 8, textDecoration: "none", transition: "background 0.2s", backdropFilter: "blur(4px)" }} onMouseEnter={e => e.currentTarget.style.background = "rgba(6,182,212,0.08)"} onMouseLeave={e => e.currentTarget.style.background = "transparent"} ><Download size={14} /> CV</a>
             </div>
           </div>
-
+          
           <div style={{ position: "relative", marginTop: "40px" }}>
             <div style={{ borderRadius: 20, border: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.02)", backdropFilter: "blur(12px)", padding: 24 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 20, paddingBottom: 16, borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
@@ -360,35 +347,14 @@ function Hero() {
                 <span style={{ width: 10, height: 10, borderRadius: "50%", background: "rgba(34,197,94,0.7)" }} />
                 <span style={{ marginLeft: "auto", fontSize: 11, color: "rgba(255,255,255,0.2)", fontFamily: "monospace" }}>yeray.portfolio</span>
               </div>
-
               <div style={{ position: "relative", width: "100%", height: 300, display: "flex", justifyContent: "center", alignItems: "flex-end", marginBottom: 24 }}>
                 <div style={{ position: "absolute", bottom: 0, width: 260, height: 260, borderRadius: "50%", background: "radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%)" }} />
-                <img
-                  src="/yeray-profile.png"
-                  alt="Yeray Navarro"
-                  style={{ 
-                    position: "relative", width: "100%", height: "100%", objectFit: "contain", objectPosition: "bottom", display: "block", 
-                    filter: "drop-shadow(0 15px 25px rgba(0,0,0,0.6))", transform: "scale(1.25)", transformOrigin: "bottom center" 
-                  }}
-                />
+                <img src="/yeray-profile.png" alt="Yeray Navarro" style={{ position: "relative", width: "100%", height: "100%", objectFit: "contain", objectPosition: "bottom", display: "block", filter: "drop-shadow(0 15px 25px rgba(0,0,0,0.6))", transform: "scale(1.25)", transformOrigin: "bottom center" }} />
               </div>
-
               <p style={{ fontSize: 11, color: "rgba(255,255,255,0.22)", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>Áreas de valor</p>
-
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-                {[
-                  { icon: Monitor, label: "Web apps", color: "#22d3ee", bg: "rgba(6,182,212,0.07)" },
-                  { icon: Workflow, label: "Automatización", color: "#34d399", bg: "rgba(16,185,129,0.07)" },
-                  { icon: Database, label: "Datos", color: "#fbbf24", bg: "rgba(245,158,11,0.07)" },
-                  { icon: Brain, label: "IA aplicada", color: "#fb7185", bg: "rgba(244,63,94,0.07)" },
-                ].map(item => (
-                  <div key={item.label} style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", borderRadius: 10, background: item.bg, border: "1px solid rgba(255,255,255,0.05)" }}>
-                    <item.icon size={15} style={{ color: item.color, flexShrink: 0 }} />
-                    <span style={{ fontSize: 12, color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>{item.label}</span>
-                  </div>
-                ))}
+                {[{ icon: Monitor, label: "Web apps", color: "#22d3ee", bg: "rgba(6,182,212,0.07)" }, { icon: Workflow, label: "Automatización", color: "#34d399", bg: "rgba(16,185,129,0.07)" }, { icon: Database, label: "Datos", color: "#fbbf24", bg: "rgba(245,158,11,0.07)" }, { icon: Brain, label: "IA aplicada", color: "#fb7185", bg: "rgba(244,63,94,0.07)" }].map(item => ( <div key={item.label} style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", borderRadius: 10, background: item.bg, border: "1px solid rgba(255,255,255,0.05)" }}> <item.icon size={15} style={{ color: item.color, flexShrink: 0 }} /> <span style={{ fontSize: 12, color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>{item.label}</span> </div> ))}
               </div>
-
               <div style={{ marginTop: 20, paddingTop: 16, borderTop: "1px solid rgba(255,255,255,0.05)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
                   <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#34d399" }} />
@@ -397,7 +363,6 @@ function Hero() {
                 <span style={{ fontSize: 12, color: "rgba(255,255,255,0.18)" }}>Alicante, España</span>
               </div>
             </div>
-            
             <div style={{ position: "absolute", bottom: -16, left: -16, background: "#0e1520", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "12px 16px", boxShadow: "0 8px 32px rgba(0,0,0,0.4)" }}>
               <p style={{ fontSize: 11, color: "rgba(255,255,255,0.25)", marginBottom: 2 }}>Perfil híbrido</p>
               <p style={{ fontSize: 22, fontWeight: 700, color: "white" }}>Sanidad + IT</p>
